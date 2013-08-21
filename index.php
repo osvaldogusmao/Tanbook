@@ -2,6 +2,7 @@
 	include_once 'functions/configurations.php';
 
 ?>
+<!--Acesso ao GitHub OK - Lukas Roberto -->
 
 <!DOCTYPE html>
 <html>
