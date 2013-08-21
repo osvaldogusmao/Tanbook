@@ -2,6 +2,7 @@
 	include_once 'functions/configurations.php';
 
 ?>
+<!-- Página Index - Projeto  -->
 <!DOCTYPE html>
 <html>
 <head>
