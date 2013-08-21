@@ -6,7 +6,9 @@
 
 <!--Acesso ao GitHub OK - Mauricio Andrade -->
 
-<!-- Acesso ao Git - Jao -->
+<!-- Acesso ao Git - Jao -->  
+
+<!--Acesso ao GitHub - Felipe-->
 
 <!DOCTYPE html>
 <html>
