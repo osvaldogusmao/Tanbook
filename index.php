@@ -6,6 +6,8 @@
 
 <!--Acesso ao GitHub OK - Mauricio Andrade -->
 
+<!--Acesso ao GitHub OK - Rafael Freitas -->
+
 <!DOCTYPE html>
 <html>
 <head>
