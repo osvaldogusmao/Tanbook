@@ -1,7 +1,19 @@
-<?php 
-//	include_once 'functions/configurations.php';
+<!--Acesso ao GitHub OK - Lukas Roberto -->
 
-?>
+<!--Acesso ao GitHub OK - Mauricio Andrade -->
+
+<!-- Acesso ao Git - Jao -->  
+
+<!--Acesso ao GitHub - Felipe-->
+
+<!-- Comentario teste -->
+
+<!-- Ivan Simionato -->
+
+<!--Larissa Machado -->
+
+<!-- Rosana -->
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,6 +1,6 @@
 <?php 
 
-include_once 'functions/test.crud.php';
+include_once 'test.crud.php';
 
 
 class teste {

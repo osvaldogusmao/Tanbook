@@ -1,6 +1,6 @@
 <?php 
 
-include_once 'crud.class.php';
+include_once '../functions/crud.class.php';
 
 /**
 *
