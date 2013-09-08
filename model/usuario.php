@@ -14,6 +14,7 @@ class usuario {
 	private $apelido;
 	private $avatar;
 	private $tipo_usuario;
+	private $chave_validacao;
 
 	//metodo construtor
 public function __construct(){
@@ -54,6 +55,9 @@ public function __construct(){
 	public function getTipousuario(){
 		return$this->tipo_usuario;
 	}
+	public function getChaveValidacao(){
+		return $this->chave_validacao;
+	}
 
 	//setters
 	public function setCodigo($codigo){
@@ -61,6 +65,10 @@ public function __construct(){
 	}
 	public function setAvatar($avatar){
 		$this->avatar = $avatar;
+	}
+	public function setChaveValidacao($chave_validacao)
+	{
+		$this->chave_validacao = $chave_validacao;
 	}
 
 		public function setUsuarioComCodigo($codigo , $nome_completo , $email , $sexo , $login , $senha , $data_nascimento , $url_facebook , $apelido , $tipo_usuario){
