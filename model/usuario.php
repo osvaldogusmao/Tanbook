@@ -1,13 +1,15 @@
 <?php
 
-class usuario {
+include_once "usuario.controller.class.php"; //include inserido para testes Lukas Roberto
+
+class usuario extends usuarioControl{//linha alterada para testes - Lukas Roberto - Antes estava assim -> >>>>>>> class usuario { <<<<<<<
 
 	//atributos
 	private $codigo;
 	private $nome_completo;
 	private $email;
 	private $sexo;
-	private $login
+	private $login;
 	private $senha;
 	private $data_nascimento;
 	private $url_facebook;
