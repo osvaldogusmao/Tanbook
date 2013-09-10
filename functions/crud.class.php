@@ -22,7 +22,7 @@
 include_once 'reflection.class.php';
 include_once 'connection.class.php';
 
-class crud {
+abstract class crud {
 
 	/**
 	*
