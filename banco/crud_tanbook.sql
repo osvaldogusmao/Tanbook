@@ -41,7 +41,28 @@ CREATE  TABLE IF NOT EXISTS `crud_tanbook`.`tipousuario` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-USE `crud_tanbook` ;
+
+-- -----------------------------------------------------
+-- Table `crud_tanbook`.`grupoUsuario`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crud_tanbook`.`grupoUsuario` (
+  `idGrupo` INT NOT NULL AUTO_INCREMENT ,
+  `nomeEscola` VARCHAR(75) NOT NULL ,
+  `nicknameGrupo` VARCHAR(45) NOT NULL ,
+  `licenca` INT NOT NULL ,
+  `dataInclusaoLicenca` DATE NOT NULL ,
+  `validadeLinceca` DATE NOT NULL ,
+  `status` VARCHAR(15) NOT NULL ,
+  `usuario_codigo` INT(11) NOT NULL ,
+  PRIMARY KEY (`idGrupo`) ,
+  INDEX `fk_grupoUsuario_usuario1_idx` (`usuario_codigo` ASC) ,
+  CONSTRAINT `fk_grupoUsuario_usuario1`
+    FOREIGN KEY (`usuario_codigo` )
+    REFERENCES `crud_tanbook`.`usuario` (`codigo` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
