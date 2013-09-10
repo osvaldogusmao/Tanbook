@@ -138,6 +138,26 @@ abstract class crud {
 
 	}
 
+
+	/**
+	*
+	* @method load()
+	* @param $value (valor que será usado na condição where)
+	* @param $attr (Atributo usado na condição where)
+	* @return true || false
+	*
+	**/
+	public function load($value, $attr){
+
+		if(empty($attr))
+			return false;
+
+		$sql = "select * from " . $this->tabela . " where " . $attr . " = " . $value . " ;";
+
+		return mysql_fetch_assoc($this->execute_query($sql));
+	}
+
+
 	/**
 	*
 	* @method execute_query()

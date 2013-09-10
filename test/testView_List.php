@@ -8,6 +8,13 @@ $controller = new TestController();
 //métodos da classe test
 $testes = $controller->lista();
 
+$id = ( isset($_GET['id']) )  ? $_GET['id'] : 0;
+
+if( $id > 0 ){
+	$load = $controller->remove($id, 'id');
+	header('Location: testView_List.php');
+}
+
 ?>
 
 <html>
@@ -21,6 +28,7 @@ $testes = $controller->lista();
 		<tr>
 			<th>ID</th>
 			<th>Nome</th>
+			<th>#</th>
 		</tr>	
 	</thead>
 	<tbody>
@@ -29,6 +37,11 @@ $testes = $controller->lista();
 			<tr>
 				<td><?php echo $teste['id'] ?></td>
 				<td><?php echo $teste['nome'] ?></td>
+				<td>
+					<a href="testView_Edit.php?id=<?php  echo $teste['id'] ?>">[Editar]</a>
+					&nbsp;
+					<a href="testView_List.php?id=<?php  echo $teste['id'] ?>">[Excluir]</a>
+				</td>
 			</tr>	
 
 		<?php endwhile; ?>
