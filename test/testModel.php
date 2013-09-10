@@ -2,6 +2,7 @@
 
 class Teste {
 
+	//Os nomes dos atributos devem ser iguais aos nomes da tabela no banco de dados.
 	private $id;
 	private $nome;
 
