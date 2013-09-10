@@ -15,10 +15,12 @@
 * Versões
 *
 * 0.0.1 - Criação da classe - Osvaldo Gusmão
+* 0.0.2 - Alteração do método execute_query() - Osvaldo Gusmão
 */
 
 
 include_once 'reflection.class.php';
+include_once 'connection.class.php';
 
 class crud {
 
@@ -75,6 +77,8 @@ class crud {
 		}
 
 		$sql .= " ) ;";
+
+		print_r($sql);
 
 		return $this->execute_query($sql);
 	}
@@ -144,7 +148,11 @@ class crud {
 	*
 	**/
 	private function execute_query($sql){
-		echo $sql . "<br/>";
+		$conn = new Connection();
+		$conn->openConnection();
+		$executed = mysql_query($sql);
+		$conn->closeConnection();
+		return $executed;
 	}
 
 }

@@ -8,10 +8,10 @@ include_once '../functions/crud.class.php';
 *
 */
 
-class test extends crud {
+class Test extends crud {
 
-	public function __construct($tabela){
-		parent::__construct($tabela);
+	public function __construct(){
+		parent::__construct("teste");
 	}
 
 	public function lista(){
