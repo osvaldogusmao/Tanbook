@@ -25,17 +25,19 @@ $testes = $controller->lista();
 	</thead>
 	<tbody>
 
-		<?php foreach ($teste as $teste) : ?>
-
+		<?php while ($teste = mysql_fetch_assoc($testes)) : ?>
 			<tr>
 				<td><?php echo $teste['id'] ?></td>
 				<td><?php echo $teste['nome'] ?></td>
 			</tr>	
 
-		<?php endforeach; ?>
+		<?php endwhile; ?>
 
 	</tbody>
 </table>
+
+<br>
+<a href="testView_Edit.php">Novo</a>
 
 </body>
 </html>

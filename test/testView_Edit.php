@@ -3,7 +3,7 @@
 include_once 'testController.php';
 include_once 'testModel.php';
 
-if(isset($_POST)){
+if(isset($_POST['nome'])){
 
 	// Criando uma instância da classe "testController" que foi estendida da classe "crud".
 	$controller = new TestController();
@@ -31,18 +31,19 @@ if(isset($_POST)){
 </head>
 <body>
 
-<form action="/test/testeView_Edit.php" method="post">
+<form action="testView_Edit.php" method="post">
 
 	<label>ID</label>
-	<input type="text" id="id" name="id">
+	<input type="text" id="id" name="id" disabled>
 
 	<label>Nome</label>
-	<input type="text" id="nome" name="nome">
+	<input type="text" id="nome" name="nome" required>
 
 	<input type="submit" value="Salvar">
 
 </form>
 
+<a href="testView_List.php">Listar tudo</a>
 
 </body>
 </html>

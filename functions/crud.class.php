@@ -78,8 +78,6 @@ abstract class crud {
 
 		$sql .= " ) ;";
 
-		print_r($sql);
-
 		return $this->execute_query($sql);
 	}
 
@@ -147,7 +145,7 @@ abstract class crud {
 	* @return true || false
 	*
 	**/
-	private function execute_query($sql){
+	public function execute_query($sql){
 		$conn = new Connection();
 		$conn->openConnection();
 		$executed = mysql_query($sql);

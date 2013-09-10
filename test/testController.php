@@ -16,7 +16,7 @@ class TestController extends crud {
 	}
 
 	public function lista(){
-		echo "select * from " . $this->getTabela() .  " ; <br/>";
+		return $this->execute_query("select * from " . $this->getTabela() .  " ;" );
 	}
 
 }
