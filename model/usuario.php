@@ -2,7 +2,8 @@
 
 include_once "usuario.controller.class.php"; //include inserido para testes Lukas Roberto
 
-class usuario extends usuarioControl{//linha alterada para testes - Lukas Roberto - Antes estava assim -> >>>>>>> class usuario { <<<<<<<
+class usuario { 
+//linha alterada para testes - Lukas Roberto - Antes estava assim -> >>>>>>> class usuario { <<<<<<<
 
 	//atributos
 	private $codigo;
@@ -15,12 +16,12 @@ class usuario extends usuarioControl{//linha alterada para testes - Lukas Robert
 	private $url_facebook;
 	private $apelido;
 	private $avatar;
-	private $tipo_usuario;
-	private $chave_validacao;
+	//private $tipo_usuario;
+	//private $chave_validacao;
 
 	//metodo construtor
 public function __construct(){
-		parent::__construct();
+		//parent::__construct();
 	}
 
 	// getters 
@@ -82,8 +83,8 @@ public function __construct(){
 		$this->senha = $senha;
 		$this->data_nascimento = $data_nascimento;
 		$this->url_facebook = $url_facebook;
-		$this->apelido = $apelido;
-		$this->tipo_usuario = $tipo_usuario;
+		//$this->apelido = $apelido;
+		//$this->tipo_usuario = $tipo_usuario;
 	}
 
 		public function setUsuarioSemCodigo( $nome_completo , $email , $sexo , $login , $senha , $data_nascimento , $url_facebook , $apelido , $tipo_usuario){

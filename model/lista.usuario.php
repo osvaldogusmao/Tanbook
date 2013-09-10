@@ -16,24 +16,22 @@ include_once "usuario.php";
   <nav>MENU</nav>
   <section id="conteudo">
     <?php
-// Conectando no banco de dados
-
-$con = new Connection();
-$con->openConnection();
 
 // Criando a instância da classe e setando a tabela de referência
 
 $usuario = new usuario();
-$usuario->setTabela("usuario");
-	
-	
+$usuario->setUsuarioSemCodigo("Usuario Teste" , "email@teste.com" , "M" , "usuario.teste" , md5("teste") , "1990-01-01" , "http://www.facebook.com/zuck" , "zuck" , "2");	
+
+//$usuario->save($usuario);
+
+$usuario_controller = new usuarioControl();
+
 // Invocando o método de Listagem
 	
-echo $usuario->listarUsuario();
-	
-// Fechando a conexão
+echo $usuario_controller->listarUsuario();
 
-$con->closeConnection();
+$usuario_controller->save($usuario);
+
 
 ?>
   </section>

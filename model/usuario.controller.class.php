@@ -12,7 +12,7 @@ class usuarioControl extends crud{
 	// Método construtor
 	
 	public function __construct(){
-		parent::__construct();
+		parent::__construct("usuario");
 	}
   		
 
@@ -26,8 +26,13 @@ class usuarioControl extends crud{
 			$this->sql_select = "SELECT * FROM ".$this->getTabela();
 	  	}
 		
+		$con = new Connection();
+		$con->openConnection();
+
 	  	$sel = mysql_query($this->sql_select);
 		$regs = mysql_num_rows($sel);
+
+		
 		
 	  	if ($regs > 0){
 		
@@ -53,7 +58,7 @@ class usuarioControl extends crud{
 			}
 			
 			$estrutura .= "</table>";
-			
+			$con->closeConnection();
 			// Fim
 			
 			return $estrutura;
@@ -61,6 +66,7 @@ class usuarioControl extends crud{
 		}else{
 			return "Nenhum registro encontrado!";
 		}
+
 
 	}  	
 
