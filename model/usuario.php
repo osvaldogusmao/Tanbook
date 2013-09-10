@@ -66,37 +66,49 @@ public function __construct(){
 	public function setCodigo($codigo){
     		$this->codigo = $codigo;
 	}
+	public function setNomeCompleto($nome_completo){
+		$this->nome_completo = $nome_completo;
+	}
+
+	public function setEmail($email){
+		$this->email = $email;
+	}
+
+	public function setSexo($sexo){
+		$this->sexo = $sexo;
+	}
+
+	public function setLogin($login){
+		$this->login= $login;
+	}
+
+	public function setSenha($senha){
+		$this->senha = $senha;
+	}
+
+	public function setDataNascimento($data_nascimento){
+		$this->data_nascimento = $data_nascimento;
+	}
+
+	public function setUrl_Facebook($url_facebook){
+		$this->url_facebook = $url_facebook;
+	}
+
+	public function setApelido($apelido){
+		$this->apelido = $apelido;
+	}
+
+	public function setTipoUsuaio($tipo_usuario){
+		$this->tipo_usuario = $tipo_usuario;
+
+	}
 	public function setAvatar($avatar){
 		$this->avatar = $avatar;
 	}
+
 	public function setChaveValidacao($chave_validacao)
 	{
 		$this->chave_validacao = $chave_validacao;
-	}
-
-		public function setUsuarioComCodigo($codigo , $nome_completo , $email , $sexo , $login , $senha , $data_nascimento , $url_facebook , $apelido , $tipo_usuario){
-		$this->codigo = $codigo;
-		$this->nome_completo = $nome_completo;
-		$this->email = $email;
-		$this->sexo = $sexo;
-		$this->login = $login;
-		$this->senha = $senha;
-		$this->data_nascimento = $data_nascimento;
-		$this->url_facebook = $url_facebook;
-		//$this->apelido = $apelido;
-		//$this->tipo_usuario = $tipo_usuario;
-	}
-
-		public function setUsuarioSemCodigo( $nome_completo , $email , $sexo , $login , $senha , $data_nascimento , $url_facebook , $apelido , $tipo_usuario){
-		$this->nome_completo = $nome_completo;
-		$this->email = $email;
-		$this->sexo = $sexo;
-		$this->login = $login;
-		$this->senha = $senha;
-		$this->data_nascimento = $data_nascimento;
-		$this->url_facebook = $url_facebook;
-		$this->apelido = $apelido;
-		$this->tipo_usuario = $tipo_usuario;
 	}
 
 }
