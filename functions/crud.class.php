@@ -8,7 +8,7 @@
 * 
 * Objetivo
 *
-* Prover os métodos de salvar, atualziar e remover de forma genérica para ser usada
+* Prover os métodos de salvar, atualizar e remover de forma genérica para ser usada
 * pelos controllers.
 *
 *
