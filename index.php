@@ -1,26 +1,22 @@
-<!--Acesso ao GitHub OK - Lukas Roberto -->
-
-<!--Acesso ao GitHub OK - Mauricio Andrade -->
-
-<!-- Acesso ao Git - Jao -->  
-
-<!--Acesso ao GitHub - Felipe-->
-
-<!-- Comentario teste -->
-
-<!-- Ivan Simionato -->
-
-<!--Larissa Machado -->
-
-<!-- Rosana -->
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $title; ?></title>
 	<meta charset="utf-8">
-</head> 
+	<title>Projeto Tanbook</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
 <body>
+<section id="wrapper">
+<header>
+LOGO AQUI
+</header>
+<nav>MENU</nav>
+<section id="conteudo">
+INSIRA SEU CODIGO AQUI </br>
 
+<a href="model/lista.tipoUsuario.php"> Lista Tipo usuario</a>
+</section>
+<footer>RODAPE</footer>
+</section>
 </body>
 </html>

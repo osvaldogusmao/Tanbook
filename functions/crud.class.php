@@ -8,19 +8,21 @@
 * 
 * Objetivo
 *
-* Prover os métodos de salvar, atualziar e remover de forma genérica para ser usada
+* Prover os métodos de salvar, atualizar e remover de forma genérica para ser usada
 * pelos controllers.
 *
 *
 * Versões
 *
 * 0.0.1 - Criação da classe - Osvaldo Gusmão
+* 0.0.2 - Alteração do método execute_query() - Osvaldo Gusmão
 */
 
 
 include_once 'reflection.class.php';
+include_once 'connection.class.php';
 
-class crud {
+abstract class crud {
 
 	/**
 	*
@@ -136,6 +138,26 @@ class crud {
 
 	}
 
+
+	/**
+	*
+	* @method load()
+	* @param $value (valor que será usado na condição where)
+	* @param $attr (Atributo usado na condição where)
+	* @return true || false
+	*
+	**/
+	public function load($value, $attr){
+
+		if(empty($attr))
+			return false;
+
+		$sql = "select * from " . $this->tabela . " where " . $attr . " = " . $value . " ;";
+
+		return mysql_fetch_assoc($this->execute_query($sql));
+	}
+
+
 	/**
 	*
 	* @method execute_query()
@@ -143,8 +165,12 @@ class crud {
 	* @return true || false
 	*
 	**/
-	private function execute_query($sql){
-		echo $sql . "<br/>";
+	public function execute_query($sql){
+		$conn = new Connection();
+		$conn->openConnection();
+		$executed = mysql_query($sql);
+		$conn->closeConnection();
+		return $executed;
 	}
 
 }
