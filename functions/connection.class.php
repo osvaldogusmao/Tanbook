@@ -1,5 +1,12 @@
 <?php 
 
+/*
+	Descrição do arquivo
+	@autor - Ivan Simionato
+	@data de criação - 08/09/2013
+	@arquivo - connection.class.php
+
+*/
 
 class Connection{
 	
