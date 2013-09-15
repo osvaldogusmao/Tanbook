@@ -1,89 +1,90 @@
-*{
-	font-family:Tahoma;
-	font-color:#333;
-	margin:0px 0px 0px 0px;
-
+* {
+	font-family: Tahoma;
+	font-color: #333;
+	margin: 0px 0px 0px 0px;
 }
-
-#wrapper{
-	width:90%;
-	background-color:#79CDCD;
+#wrapper {
+	width: 90%;
+	background-color: #79CDCD;
 	margin: 0 auto;
 }
-header{
-	width:100%;
-	height:150px;
-	background-color:#8DEEEE;
+header {
+	width: 100%;
+	height: 150px;
+	background-color: #8DEEEE;
 }
- body{
- background-color:#79CDCD;
- font:85%/160% "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
-
- 
- }
-nav{
-	width:100%;
-	height:30px;
-	background-color:#53868B;
+body {
+	background-color: #79CDCD;
+	font: 85%/160% "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 }
-
-#conteudo{
-background-color:#00C5CD;
-height:430px;
-
+nav {
+	width: 100%;
+	height: 30px;
+	background-color: #53868B;
 }
-
-footer{
-	width:100%;
-	height:50px;
-	background-color:#00868B;
+#conteudo {
+	background-color: #00C5CD;
+	height: 430px;
 }
-
-
+footer {
+	width: 100%;
+	height: 50px;
+	background-color: #00868B;
+}
 /* CSS usado para mudar a aparencia de tabelas - Lukas Roberto */
 a.tbListaUsuario:link {
-	display:block;
-	color:#333333;
-	text-decoration:none;
-	}	
+	display: block;
+	color: #333333;
+	text-decoration: none;
+}
 a.tbListaUsuario:visited {
-	text-decoration:none;
-
-	}		
-a.tbListaUsuario:hover,
-a.tbListaUsuario:focus {
-	text-decoration:none;
-	background:#FFF;
-	}
-	
+	text-decoration: none;
+}
+a.tbListaUsuario:hover, a.tbListaUsuario:focus {
+	text-decoration: none;
+	background: #FFF;
+}
 img {
-	border:0;
-	}	
+	border: 0;
+}
 table {
-	width:90%;
-	border-top:1px solid #e3f1fe;
-	border-right:1px solid #e3f1fe;
-	margin:0 auto;
-	border-collapse:collapse;
-		/* Para WebKit (Safari, Google Chrome etc) */
+	width: 90%;
+	border-top: 1px solid #e3f1fe;
+	border-right: 1px solid #e3f1fe;
+	margin: 0 auto;
+	border-collapse: collapse;
+	/* Para WebKit (Safari, Google Chrome etc) */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#BBBBBB)) repeat-X;
-		/* Para Mozilla/Gecko (Firefox etc) */
-	background: -moz-linear-gradient(top, #FFF, #BBBBBB) repeat-X;	
-	}
-	
+	/* Para Mozilla/Gecko (Firefox etc) */
+	background: -moz-linear-gradient(top, #FFF, #BBBBBB) repeat-X;
+}
 td {
-	color:#333333;
+	color: #333333;
 	border-bottom: 1px solid #e3f1fe;
-	border-left:1px solid #e5eff8;
-	text-align:center;
-	}				
+	border-left: 1px solid #e5eff8;
+	text-align: center;
+}
 th {
-	font-weight:bold;
-	background-color:#066;
+	font-weight: bold;
+	background-color: #066;
 	color: #FFFFFF;
-	text-align:left;
+	text-align: left;
 	border-bottom: 1px solid #e3f1fe;
-	border-left:1px solid #e5eff8;
-	padding:.3em 1em;
-	}	
-/* Fim do CSS usado para mudar a aparencia de tabelas - Lukas Roberto *	
+	border-left: 1px solid #e5eff8;
+	padding: .3em 1em;
+}
+/* Fim do CSS usado para mudar a aparencia de tabelas - Lukas Roberto */
+
+/* Estilo para Menssagem de Alerta - Lukas Roberto */
+.alerta {
+	text-align: center;
+	font-size: 18px;
+	text-shadow: 1px 1px 2px #FFFFCC, 0 0 1em #FFFF66, 0 0 0.2em #999999;
+	color: #333;
+	border-radius: 5px;
+	background-color: #FFFF99;
+	padding: 10px;
+	width: 30%;
+	margin: 0 auto;
+}
+/* Fim Estilo para Menssagem de Alerta - Lukas Roberto */

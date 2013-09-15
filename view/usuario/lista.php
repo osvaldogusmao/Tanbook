@@ -1,5 +1,5 @@
-<?php
-include_once "../../controller/lista.usuario.controller.class.php"; //include inserido para testes Lukas Roberto
+﻿<?php
+include_once "../../controller/lista.usuario.controller.class.php";
 
 ?>
 
@@ -8,7 +8,7 @@ include_once "../../controller/lista.usuario.controller.class.php"; //include in
 <head>
 <meta charset="utf-8">
 <title>Projeto Tanbook</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
+<link href="../../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <section id="wrapper">
@@ -17,11 +17,14 @@ include_once "../../controller/lista.usuario.controller.class.php"; //include in
   <section id="conteudo">
     <?php
 
-$usuario_controller = new usuarioControl();	
+$usuario_controller = new usuarioControl();
 $resultados = $usuario_controller->listarUsuario();
 
-
 ?>
+        <?php 
+			//verifica se existem usuarios cadastrados, se existirem lista os usuarios
+			if ($resultados){
+		?>
     <table>
       <thead>
         <tr>
@@ -32,16 +35,28 @@ $resultados = $usuario_controller->listarUsuario();
         </tr>
       </thead>
       <tbody>
-        <?php 
-						while($campos = mysql_fetch_array($resultados)): ?>
+		<?php
+				while($campos = mysql_fetch_array($resultados)): 
+		?>
         <tr>
-          <td><?php echo $campos["codigo"] ?></td>
-          <td><?php echo $campos["nome_completo"] ?></td>
-          <td><a href="editar.php?codigo=<?php echo $campos["codigo"] ?>" class="tbListaUsuario">Editar</a></td>
-          <td><a href="excluir.php?codigo=<?php echo $campos["codigo"] ?>" class="tbListaUsuario">Editar</a></td>
-        <?php endwhile; ?>
+          <td><?php echo $campos["id"] ?></td>
+          <td><?php echo $campos["nome"] ?></td>
+          <td><a href="editar.php?codigo=<?php echo $campos["id"] ?>" class="tbListaUsuario">Editar</a></td>
+          <td><a href="excluir.php?codigo=<?php echo $campos["id"] ?>" class="tbListaUsuario">Editar</a></td>
+        </tr>
+        <?php
+		  		endwhile;
+		?>
       </tbody>
     </table>
+    	<?php		
+                //se não existir usuarios cadastrados, exibe menssagem	
+	  		}else{
+		?>
+        <div class="alerta"> Sem Usuários Cadastrados </div>
+        <?php
+				}
+ 		  ?>
   </section>
   <footer>RODAPE</footer>
 </section>

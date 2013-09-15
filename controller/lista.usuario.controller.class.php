@@ -1,35 +1,33 @@
-<?php
+﻿<?php
 
-include_once "../functions/crud.class.php";
-include_once "../functions/connection.class.php";
-
+include_once "../../functions/crud.class.php";
+include_once "../../functions/connection.class.php";
 
 class usuarioControl extends crud{
 	  
 	// Método construtor
-	
 	public function __construct(){
 		parent::__construct("usuario");
 	}
   		
 	// Método de listagem
-
 	public function listarUsuario($where = NULL){	
 		
 		if ($where){
-			$this->sql_select = "SELECT * FROM ".$this->getTabela()." WHERE ".$where;
+			$select = $this->execute_query("SELECT * FROM ".$this->getTabela()." WHERE ".$where);
 		}else{
-			$this->sql_select = "SELECT * FROM ".$this->getTabela();
+			$select = $this->execute_query("SELECT * FROM ".$this->getTabela());
 	  	}
-
-	  	$sel = mysql_query($this->sql_select);
-		$regs = mysql_num_rows($sel);
 		
+		$regs = mysql_num_rows($select);
+		
+		//Verifica se tem usuarios cadastrados no BD, se tiver retorna uma lista com os usuarios
 	  	if ($regs > 0){
-		return $sel;
-
+			return $select;
+		
+		//se nao tiver usuarios cadastrados retorna false
 		}else{
-			return "Nenhum registro encontrado!";
+			return false;
 		}
 
 	}  	
