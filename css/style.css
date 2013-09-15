@@ -48,6 +48,7 @@ img {
 	border: 0;
 }
 table {
+	font: 85%/160% "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 	width: 90%;
 	border-top: 1px solid #e3f1fe;
 	border-right: 1px solid #e3f1fe;
