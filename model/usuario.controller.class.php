@@ -26,7 +26,7 @@ class usuarioControl extends crud{
 			$this->sql_select = "SELECT * FROM ".$this->getTabela();
 	  	}
 		
-		$con = new Connection();
+		$con = new connection();
 		$con->openConnection();
 
 	  	$sel = mysql_query($this->sql_select);

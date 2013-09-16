@@ -18,7 +18,7 @@ include_once "tipo_usuario.php";
     <?php
 // Conectando no banco de dados
 
-$con = new Connection();
+$con = new connection();
 $con->openConnection();
 
 // Criando a instância da classe e setando a tabela de referência

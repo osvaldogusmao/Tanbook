@@ -2,7 +2,7 @@
 include_once "../functions/connection.class.php";
 include_once "../model/tipo_usuario.controller.php";
 
-$conexao = new Connection();
+$conexao = new connection();
 
 $conexao->openConnection();
 

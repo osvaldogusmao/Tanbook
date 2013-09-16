@@ -166,7 +166,7 @@ abstract class crud {
 	*
 	**/
 	public function execute_query($sql){
-		$conn = new Connection();
+		$conn = new connection();
 		$conn->openConnection();
 		$executed = mysql_query($sql);
 		$conn->closeConnection();
