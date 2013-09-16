@@ -8,7 +8,7 @@
 
 */
 
-class Connection{
+class connection{
 	
 	private $connection;
 	private $parameters = array("host"=>"186.202.152.92",

@@ -8,7 +8,7 @@
 * 
 * Objetivo
 *
-* Prover os métodos de salvar, atualziar e remover de forma genérica para ser usada
+* Prover os métodos de salvar, atualizar e remover de forma genérica para ser usada
 * pelos controllers.
 *
 *
@@ -22,7 +22,7 @@
 include_once 'reflection.class.php';
 include_once 'connection.class.php';
 
-class crud {
+abstract class crud {
 
 	/**
 	*
@@ -77,8 +77,6 @@ class crud {
 		}
 
 		$sql .= " ) ;";
-
-		print_r($sql);
 
 		return $this->execute_query($sql);
 	}
@@ -140,6 +138,26 @@ class crud {
 
 	}
 
+
+	/**
+	*
+	* @method load()
+	* @param $value (valor que será usado na condição where)
+	* @param $attr (Atributo usado na condição where)
+	* @return true || false
+	*
+	**/
+	public function load($value, $attr){
+
+		if(empty($attr))
+			return false;
+
+		$sql = "select * from " . $this->tabela . " where " . $attr . " = " . $value . " ;";
+
+		return mysql_fetch_assoc($this->execute_query($sql));
+	}
+
+
 	/**
 	*
 	* @method execute_query()
@@ -147,8 +165,8 @@ class crud {
 	* @return true || false
 	*
 	**/
-	private function execute_query($sql){
-		$conn = new Connection();
+	public function execute_query($sql){
+		$conn = new connection();
 		$conn->openConnection();
 		$executed = mysql_query($sql);
 		$conn->closeConnection();

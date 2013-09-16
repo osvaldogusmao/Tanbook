@@ -2,7 +2,7 @@
 
 include_once "../functions/crud.class.php";
 
-class usuarioControl extends crud{
+class tipo_usuarioController extends crud{
 	  
 	//Atributos
 	
@@ -12,13 +12,13 @@ class usuarioControl extends crud{
 	// Método construtor
 	
 	public function __construct(){
-		parent::__construct("usuario");
+		parent::__construct();
 	}
   		
 
 	// Método de listagem
 
-	public function listarUsuario($where = NULL){
+	public function listarTipoUsuario($where = NULL){
 		
 		if ($where){
 			$this->sql_select = "SELECT * FROM ".$this->getTabela()." WHERE ".$where;
@@ -26,13 +26,8 @@ class usuarioControl extends crud{
 			$this->sql_select = "SELECT * FROM ".$this->getTabela();
 	  	}
 		
-		$con = new connection();
-		$con->openConnection();
-
 	  	$sel = mysql_query($this->sql_select);
 		$regs = mysql_num_rows($sel);
-
-		
 		
 	  	if ($regs > 0){
 		
@@ -43,22 +38,16 @@ class usuarioControl extends crud{
     		while($campo = mysql_fetch_array($sel)){ // laço de repetiçao que vai trazer todos os resultados da consulta
                     $estrutura .= 	"
 									<tr>
-										<td>".$campo['codigo']."</td>
-										<td>".$campo['nome']."</td>
-										<td>".$campo['login']."</td>
-										<td>".$campo['senha']."</td>
-										<td>".$campo['email']."</td>
-										<td>".$campo['nick name']."</td>
-										<td>".$campo['facebook']."</td>
-										<td>".$campo['datanascimento']."</td>
-										<td><a href=\"editarusuario.php?codigo=".$campo['codigo']."\" class='tbListaUsuario'\">Editar</a></td>
-										<td><a href=\"excluirusuario.php?codigo=".$campo['codigo']."\" class='tbListaUsuario'\" >Excluir</a></td>
+										<td>".$campo['usuario_codigo']."</td>
+										<td>".$campo['grupo']."</td>
+										<td>".$campo['nivelAcesso']."</td>
+										<td>".$campo['sexo']."</td>
 									</tr>
 									";
 			}
 			
 			$estrutura .= "</table>";
-			$con->closeConnection();
+			
 			// Fim
 			
 			return $estrutura;
@@ -66,7 +55,6 @@ class usuarioControl extends crud{
 		}else{
 			return "Nenhum registro encontrado!";
 		}
-
 
 	}  	
 

@@ -8,7 +8,7 @@ include_once '../functions/crud.class.php';
 *
 */
 
-class Test extends crud {
+class TestController extends crud {
 
 	public function __construct(){
 		//Deve obrigatoriamente passar um parametro, que deve ser o mesmo nome da tabela no BD
@@ -16,7 +16,7 @@ class Test extends crud {
 	}
 
 	public function lista(){
-		echo "select * from " . $this->getTabela() .  " ; <br/>";
+		return $this->execute_query("select * from " . $this->getTabela() .  " ;" );
 	}
 
 }
