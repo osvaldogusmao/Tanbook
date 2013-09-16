@@ -1,4 +1,13 @@
 <?php
+
+/*
+	Descrição do arquivo: Controller responsavel pelas consultas para listagem dos tipos de usuarios na tela
+	@autor - Rafael de Pádua
+	@data de criação - 16/09/2013
+	@arquivo - 
+*/
+
+
 include_once "../functions/connection.class.php";
 include_once "tipo_usuario.php";
 ?>
