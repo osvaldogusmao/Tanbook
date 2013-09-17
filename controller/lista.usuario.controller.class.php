@@ -21,12 +21,12 @@ class usuarioControl extends crud{
 	public function listarUsuario($where = NULL){	
 		
 		if ($where){
-			//$select = $this->execute_query("SELECT * FROM usuario, tipodeusuario WHERE usuario.tipoDeUsuario_id = tipodeusuario.id and usuario.id =".$where);
-			$select = $this->execute_query("SELECT * FROM ".$this->getTabela()." WHERE id =".$where);
+			$select = $this->execute_query("SELECT grupoDeUsuario.nome AS nomeGrupo, usuario.nome AS nomeUsuario, tipodeusuario.nome AS nomeTipo, usuario.id, usuario.email, usuario.sexo, usuario.dataDeNascimento, usuario.urlFacebook, usuario.apelido, usuario.avatar FROM usuario, tipodeusuario, grupoDeUsuario WHERE usuario.grupoDeUsuario_id = grupoDeUsuario.id AND usuario.tipoDeUsuario_id = tipodeusuario.id and usuario.id =".$where);
+			//$select = $this->execute_query("SELECT * FROM ".$this->getTabela()." WHERE id =".$where);
 		}else{
-			//$select = $this->execute_query("SELECT * FROM usuario, tipodeusuario, grupoDeUsuario WHERE usuario.grupoDeUsuario_id = grupoDeUsuario.id  and usuario.tipoDeUsuario_id = tipodeusuario.id");
+			$select = $this->execute_query("SELECT grupoDeUsuario.nome AS nomeGrupo, usuario.nome AS nomeUsuario, tipodeusuario.nome AS nomeTipo, usuario.id, usuario.email, usuario.sexo, usuario.dataDeNascimento, usuario.urlFacebook, usuario.apelido, usuario.avatar FROM usuario, tipodeusuario, grupoDeUsuario WHERE usuario.grupoDeUsuario_id = grupoDeUsuario.id AND usuario.tipoDeUsuario_id = tipodeusuario.id");
 
-			$select = $this->execute_query("SELECT * FROM ".$this->getTabela());
+			//$select = $this->execute_query("SELECT * FROM ".$this->getTabela());
 	  	}
 		
 		$regs = mysql_num_rows($select);

@@ -45,9 +45,6 @@ include_once "../../controller/lista.usuario.controller.class.php";
         <input type="text" name="idUsuario" id="idUsuario">
         <input type="submit" name="button" id="button" value="Buscar">
       </form>
-    </div>
-    </p>
-    <p>&nbsp;</p>
     <table>
       <thead>
         <tr>
@@ -69,15 +66,15 @@ include_once "../../controller/lista.usuario.controller.class.php";
 				while($campos = mysql_fetch_array($resultados)):
 		?>
         <tr>
-          <td><?php echo $campos["avatar"] ?></td>
+          <td><img src="../../img/<?php echo $campos["avatar"] ?>.png" width="30" height="30"></td>
           <td><?php echo $campos["apelido"] ?></td>
-          <td><?php echo $campos["nome"] ?></td>
+          <td><?php echo $campos["nomeUsuario"] ?></td>
           <td><?php echo $campos["email"] ?></td>
           <td><?php echo $campos["sexo"] ?></td>
           <td><?php echo $campos["dataDeNascimento"] ?></td>
           <td><?php echo $campos["urlFacebook"] ?></td>
-          <td><?php echo $campos["tipoDeUsuario_id"] ?></td>
-          <td><?php echo $campos["grupoDeUsuario_id"] ?></td>
+          <td><?php echo $campos["nomeTipo"] ?></td>
+          <td><?php echo $campos["nomeGrupo"] ?></td>
           <td><a href="editar.php?id=<?php echo $campos["id"] ?>" class="tbListaUsuario">Editar</a></td>
           <td><a href="excluir.php?id=<?php echo $campos["id"] ?>" class="tbListaUsuario">Excluir</a></td>
         </tr>
@@ -86,6 +83,7 @@ include_once "../../controller/lista.usuario.controller.class.php";
 		?>
       </tbody>
     </table>
+     </div>
     <?php		
                 //se não existir usuarios cadastrados, exibe menssagem	
 	  		}else{
