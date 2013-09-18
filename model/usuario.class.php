@@ -1,11 +1,15 @@
 <?php
 
+/**
+*	Descrição do Arquivo
+*	@author - Vanessa Rossi
+*	@Data De Criação - 07/09/2013
+*	@Arquivo  - usuario.class.php
+*/
+
 include_once "usuario.controller.class.php"; //include inserido para testes Lukas Roberto
 
 class usuario   { 
-//linha alterada para testes - Lukas Roberto - Antes estava assim -> >>>>>>> class usuario { <<<<<<<
-//o atributo login será o email
-
 
 	//atributos
 	

@@ -1,6 +1,0 @@
-<?php 
-
-$title = "Projeto ADS";
-
-
-?>
