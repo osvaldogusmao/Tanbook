@@ -38,7 +38,7 @@ public function __construct(){
 	}
 	 
 	public function setId($id){
-	    return $this->id = $id;
+	    $this->id = $id;
 	}
 
 	public function getNome(){
@@ -46,7 +46,7 @@ public function __construct(){
 	}
 	 
 	public function setNome($nome){
-	    return $this->nome = $nome;
+	     $this->nome = $nome;
 	}
 
 	public function getEmail(){
@@ -54,7 +54,7 @@ public function __construct(){
 	}
 	 
 	public function setEmail($email){
-	    return $this->email = $email;
+	    $this->email = $email;
 	}
 
 	public function getSexo(){
@@ -62,7 +62,7 @@ public function __construct(){
 	}
 	 
 	public function setSexo($sexo){
-	    return $this->sexo = $sexo;
+	    $this->sexo = $sexo;
 	}
 
 	public function getSenha(){
@@ -70,7 +70,7 @@ public function __construct(){
 	}
 	 
 	public function setSenha($senha){
-	    return $this->senha = $senha;
+	     $this->senha = $senha;
 	}
 
 	public function getDataDeNascimento(){
@@ -78,7 +78,7 @@ public function __construct(){
 	}
 	 
 	public function setDataDeNascimento($dataDeNascimento){
-	    return $this->dataDeNascimento = $dataDeNascimento;
+	     $this->dataDeNascimento = $dataDeNascimento;
 	}
 
 	public function getUrlFacebook(){
@@ -86,7 +86,7 @@ public function __construct(){
 	}
 	 
 	public function setUrlFacebook($urlFacebook){
-	    return $this->urlFacebook = $urlFacebook;
+	     $this->urlFacebook = $urlFacebook;
 	}
 
 	public function getApelido(){
@@ -94,7 +94,7 @@ public function __construct(){
 	}
 	 
 	public function setApelido($apelido){
-	    return $this->apelido = $apelido;
+	     $this->apelido = $apelido;
 	}
 
 	public function getAvatar(){
@@ -102,7 +102,7 @@ public function __construct(){
 	}
 	 
 	public function setAvatar($avatar){
-	    return $this->avatar = $avatar;
+	     $this->avatar = $avatar;
 	}
 
 	public function getDataDeCadastro(){
@@ -110,7 +110,7 @@ public function __construct(){
 	}
 	 
 	public function setDataDeCadastro($dataDeCadastro){
-	    return $this->dataDeCadastro = $dataDeCadastro;
+	     $this->dataDeCadastro = $dataDeCadastro;
 	}
 
 	public function getTipoUsuario_id(){
@@ -118,7 +118,7 @@ public function __construct(){
 	}
 	 
 	public function setTipoDeUsuario_id($tipoDeUsuario_id){
-	    return $this->tipoDeUsuario_id = $tipoDeUsuario_id;
+	     $this->tipoDeUsuario_id = $tipoDeUsuario_id;
 	}
 
 	public function getGrupoDeUsuario_id(){
@@ -126,6 +126,6 @@ public function __construct(){
 	}
 	 
 	public function setGrupoDeUsuario_id($grupoDeUsuario_id){
-	    return $this->grupoDeUsuario_id = $grupoDeUsuario_id;
+	    $this->grupoDeUsuario_id = $grupoDeUsuario_id;
 	}
 ?>
