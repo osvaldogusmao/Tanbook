@@ -83,7 +83,8 @@ CREATE  TABLE IF NOT EXISTS `CrudTanbook`.`Historia` (
   CONSTRAINT `fk_Historia_GrupoDeUsuario1`
     FOREIGN KEY (`grupoDeUsuario_id` )
     REFERENCES `CrudTanbook`.`GrupoDeUsuario` (`id` )
-    ON DELETE NO ACTION
+  
+  ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -91,20 +92,31 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `CrudTanbook`.`LogDeAcesso`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `CrudTanbook`.`LogDeAcesso` (
+CREATE  TABLE IF NOT EXISTS `CrudTanbook`.
+`LogDeAcesso` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `usuario_id` INT NOT NULL ,
   `dataAcesso` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_LogDeAcesso_Usuario1_idx` (`usuario_id` ASC) ,
+  
+INDEX `fk_LogDeAcesso_Usuario1_idx` (`usuario_id` ASC) ,
   CONSTRAINT `fk_LogDeAcesso_Usuario1`
     FOREIGN KEY (`usuario_id` )
-    REFERENCES `CrudTanbook`.`Usuario` (`id` )
+    
+REFERENCES `CrudTanbook`.`Usuario` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = 
+InnoDB;
+
+-- -----------------------------------------------------
+-- Table `CrudTanbook`.`Categoria`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `CrudTanbook`.`Categoria` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `descricao` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
-
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
