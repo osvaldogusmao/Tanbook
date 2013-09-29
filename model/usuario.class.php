@@ -128,4 +128,5 @@ public function __construct(){
 	public function setGrupoDeUsuario_id($grupoDeUsuario_id){
 	    $this->grupoDeUsuario_id = $grupoDeUsuario_id;
 	}
+}
 ?>
