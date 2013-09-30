@@ -1,7 +1,7 @@
 <?php
 	
 	session_start();
-	echo "Imprimindo sessão ".$_SESSION['email'];
+	echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html>

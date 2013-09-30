@@ -7,20 +7,26 @@
 <?php
   
     include_once '../../controller/login.controller.class.php';
+    include_once '../../model/logdeacesso.class.php';
+    include_once '../../controller/logDeAcesso.controller.class.php';
   
 if (isset($_POST["email"]) ||  isset($_POST["senha"])){
-
        $loginController = new LoginController();
-
-      $valueEmail=$_POST['email'];
-      $valueSenha = $_POST['senha'];
-      $result = $loginController->login('email' , $valueEmail ,'senha' , $valueSenha);
-      
-      if ($result == '1') {
+      $result = $loginController->login('email' , $_POST['email'] ,'senha' , $_POST['senha']);
+      $quantidadeDeDados = mysql_num_rows($result);
+      if ($quantidadeDeDados == '1') {
+          $usuario = mysql_fetch_array($result);
           session_start();
-          $_SESSION["email"] = $_POST["email"];
+          $_SESSION["id"] = $usuario["id"];
+
+          $logDeAcessoController = new LogDeAcessoController();
+          $logDeAcesso = new LogDeAcesso();
+          $logDeAcesso->setUsuario_id($usuario["id"]);
+          $logDeAcesso->setDataAcesso(date('Y/m/d'));
+          $logDeAcessoController->save($logDeAcesso);
+
           header("Location: ../../index.php");
-      }elseif ($result == '0') {
+      }else{
           header("Location: login.php");
       }
 }

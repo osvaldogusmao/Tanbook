@@ -15,7 +15,4 @@ class LogDeAcessoController extends crud {
 		parent::__construct("LogDeAcesso");	
 	}
 
-	public function saveLog($object){
-		return $this->save($object);
-	}
 }

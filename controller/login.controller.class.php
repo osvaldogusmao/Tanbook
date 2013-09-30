@@ -18,21 +18,15 @@ class LoginController extends LogDeAcessoController {
 
 	public function login($email , $valueEmail ,$senha , $valueSenha){
 		$usuarioController = new UsuarioController();
-		 $result = $usuarioController->buscarPorLogin($email , $valueEmail, $senha , $valueSenha );
-		 $quantidadeDados = mysql_num_rows($result);
-		 return $quantidadeDados;
+		 $result = $usuarioController->buscarPorLogin($email , $valueEmail, $senha , $valueSenha );	 
+		return $result;
 	}
 
 	public function logout(){
-		if (isset($_SESSION["email"])) {
+		if (isset($_SESSION["id"])) {
 			session_destroy();
 			header("Location: login.php");
 		}
-	}
-
-	public function saveLog($object){
-		 $logDeAcessoController = new LogDeAcessoController();
-		 $logDeAcessoController->saveLog($object);
 	}
 
 }
