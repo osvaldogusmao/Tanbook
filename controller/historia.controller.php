@@ -12,19 +12,23 @@ include_once "../../functions/crud.class.php";
 class historia extends crud {
 
     public function __contructor() {
-        parent::__contructor("");
+        parent::__contructor("Historia");
     }
 
-    public function save() {
-        
+    public function saveHistoria($historia) {
+        return $this->save($historia);
     }
 
-    public function delete() {
-        
+    public function deleteHistoria($valor, $atributo) {
+        return $this->delete($valor, $atributo);     
     }
 
-    public function update() {
-        
+    public function updateHistoria($valor, $atributo) {
+        return $this->update($valor, $atributo);
+    }
+    
+    public function load($value, $attr) {
+        return $this->load($value, $attr);
     }
 
 }
