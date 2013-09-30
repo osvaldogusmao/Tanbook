@@ -1,3 +1,8 @@
+<?php
+	
+	session_start();
+	echo "Imprimindo sessão ".$_SESSION['email'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +16,7 @@
 LOGO AQUI
 </header>
 <nav>MENU</nav>
+<a href="index.php">Logout Teste</a>
 <section id="conteudo">
 INSIRA SEU CODIGO AQUI </br>
 

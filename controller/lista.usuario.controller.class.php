@@ -14,7 +14,7 @@ class usuarioControl extends crud{
 	  
 	// Método construtor
 	public function __construct(){
-		parent::__construct("usuario");
+		parent::__construct("Usuario");
 	}
   		
 	// Método de listagem
@@ -45,7 +45,6 @@ class usuarioControl extends crud{
 			return $select = $this->execute_query("SELECT * FROM tipodeusuario WHERE id =".$where);
 
 	}  	
-
 }  		
   	
 ?>

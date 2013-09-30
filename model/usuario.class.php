@@ -9,7 +9,7 @@
 
 include_once "usuario.controller.class.php"; //include inserido para testes Lukas Roberto
 
-class usuario   { 
+class Usuario   { 
 
 	//atributos
 	
