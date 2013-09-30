@@ -1,21 +1,21 @@
 <?php
 
-
 /**
-* @author Jão
-* @modified date: 15/09
-*/
-
+ * @author Jão
+ * @modified date: 15/09
+ */
 include_once '../functions/crud.class.php';
 
-class tipoDeUsuario extends crud{
+class tipoDeUsuario extends crud {
 
     private $id;
     private $nome;
     private $descricao;
 
-    function __construct(){
+    function __construct() {
+        
     }
+
     public function getId() {
         return $this->id;
     }
@@ -39,5 +39,7 @@ class tipoDeUsuario extends crud{
     public function setDescricao($descricao) {
         $this->descricao = $descricao;
     }
+
+}
 
 ?>

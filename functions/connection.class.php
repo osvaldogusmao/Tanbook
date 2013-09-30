@@ -8,13 +8,20 @@
 
 */
 
-class Connection{
-	
-	private $connection;
-	private $parameters = array("host"=>"186.202.152.92",
+/*
+private $parameters = array("host"=>"186.202.152.92",
 								"user"=>"feob24",
 								"password"=>"tanbook010203@",
 								"database"=>"feob24");
+
+*/
+class Connection{
+	
+	private $connection;
+	private $parameters = array("host"=>"localhost",
+								"user"=>"root",
+								"password"=>"root",
+								"database"=>"CrudTanbook");
 
 	public function openConnection(){
 
