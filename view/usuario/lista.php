@@ -7,7 +7,7 @@
 	@arquivo - lista.php
 
 */
-include_once "../../controller/lista.usuario.controller.class.php";
+include_once "../../controller/usuario.controller.class.php";
   echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
 ?>
 
@@ -25,13 +25,13 @@ include_once "../../controller/lista.usuario.controller.class.php";
   <section id="conteudo">
     <p>
       <?php
-	  $idUsuario = NULL;
-	  if(isset($_POST["idUsuario"])){
-		$idUsuario = $_POST["idUsuario"];
+	  $Usuario = NULL;
+	  if(isset($_POST["Usuario"])){
+		$Usuario = $_POST["Usuario"];
 		}
 
 	$usuario_controller = new usuarioControl();
-	$resultados = $usuario_controller->listarUsuario($idUsuario);	
+	$resultados = $usuario_controller->listarUsuario($Usuario);	
 
 	?>
       <?php 
@@ -41,7 +41,7 @@ include_once "../../controller/lista.usuario.controller.class.php";
     <div id="filtro">
       <form name="form1" method="post" action="lista.php">
         <label for="idUsuario"></label>
-        <input type="text" name="idUsuario" id="idUsuario">
+        <input type="text" name="Usuario" id="Usuario">
         <input type="submit" name="button" id="button" value="Buscar">
       </form>
     <table>
