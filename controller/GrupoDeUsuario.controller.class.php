@@ -14,7 +14,7 @@
 
 include_once "../../functions/crud.class.php";
 
-class GrupoDeUsuarioController extends crud{
+class GrupoDeUsuarioController extends CRUD{
 	  
 	//Atributos
 	

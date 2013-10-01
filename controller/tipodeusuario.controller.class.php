@@ -9,7 +9,7 @@
 
 include_once"../../functions/crud.class.php";
 
-class TipoUsuarioController extends crud {
+class TipoUsuarioController extends CRUD {
 
     public function __construct() {
         parent::__construct("tipodeusuario");
