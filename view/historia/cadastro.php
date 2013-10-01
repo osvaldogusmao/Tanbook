@@ -15,14 +15,32 @@ $controller = new HistoriaController();
 $historia = new Historia();
 
 if (isset($_POST['submit'])) {
-	
 
+	$historia->setId($_POST['id']);
+	$historia->setGrupoDeUsuario_id($_POST['grupoDeUsuario_id']);
+	$historia->setNome($_POST['nome']);
+	$historia->setResenha($_POST['resenha']);
+	$historia->setAutor($_POST['autor']);
+	$historia->setDataCriacao($_POST['dataCriacao']);
+	$historia->setDataPublicacao($_POST['dataPublicacao']);
+	$historia->setStatus($_POST['status']);
+	$historia->setCompartilhada($_POST['compartilhada']);
 
+	$fotoCapa = $controller->uploadCapa();
+
+	if(!empty($fotoCapa)){
+		$historia->setFotoCapa($fotoCapa);
+	}
+
+	if($historia->getId() > 0){
+		$controller->update($historia, 'id');
+		print_r('update');
+	}else{
+		$controller->save($historia, 'id');
+		print_r('save');
+	}
 
 }
-
-
-
 
 ?>
 
@@ -43,10 +61,10 @@ LOGO AQUI
 
 
 
-	<form action="cadastro.php" method="post" style="padding-left:10px;">
+	<form action="cadastro.php" method="post" style="padding-left:10px;" enctype="multipart/form-data">
 		
 		<input type="hidden" name="id" id="id">
-		<input type="hidden" name="grupoUsuario_id" id="grupoUsuario_id">
+		<input type="hidden" name="grupoDeUsuario_id" id="grupoDeUsuario_id" value="1">
 
 		<label for="nome">Nome</label>
 		<input type="text" name="nome" id="nome" required>
