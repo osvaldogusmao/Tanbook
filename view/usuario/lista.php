@@ -8,7 +8,15 @@
 
 */
 include_once "../../controller/lista.usuario.controller.class.php";
-  echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
+ include_once '../../controller/login.controller.class.php';
+    session_start();
+  if (!isset($_SESSION['id'])) {
+    header("Location: ../../view/login/login.php");
+  }
+  if ((!isset($_POST['action']))&&($_POST['action'] == 'logout')) {
+    $loginController = new LoginController();
+    $loginController->logout();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +30,8 @@ include_once "../../controller/lista.usuario.controller.class.php";
 <section id="wrapper">
   <header> LOGO AQUI </header>
   <nav>MENU</nav>
+  <form action="lista.php" method="Post">
+  <a href="lista.php?$action=<?php echo "logout" ?>">Logout Teste</a>
   <section id="conteudo">
     <p>
       <?php
@@ -92,6 +102,7 @@ include_once "../../controller/lista.usuario.controller.class.php";
 				}
  		  ?>
   </section>
+  </form>
   <footer>RODAPE</footer>
 </section>
 </body>

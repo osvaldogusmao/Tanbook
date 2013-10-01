@@ -1,9 +1,11 @@
 <?php 
-
-
 include_once "../../controller/historia.controller.php";
 include_once "../../model/historia.class.php";
-
+	session_start();
+	if (!isset($_SESSION['id'])) {
+		 header("Location: ../../view/login/login.php");
+	}
+	echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
 $controller = new HistoriaController();
 $historia = new Historia();
 

@@ -19,7 +19,6 @@
 	  		
 		// Método de listagem
 		public function listarUsuario($where = NULL){	
-			verificaSessao();
 			if ($where){
 				$select = $this->execute_query("SELECT grupoDeUsuario.nome AS nomeGrupo, usuario.nome AS nomeUsuario, tipodeusuario.nome AS nomeTipo, usuario.id, usuario.email, usuario.sexo, usuario.dataDeNascimento, usuario.urlFacebook, usuario.apelido, usuario.avatar FROM usuario, tipodeusuario, grupoDeUsuario WHERE usuario.grupoDeUsuario_id = grupoDeUsuario.id AND usuario.tipoDeUsuario_id = tipodeusuario.id and usuario.id =".$where);
 				//$select = $this->execute_query("SELECT * FROM ".$this->getTabela()." WHERE id =".$where);
@@ -43,13 +42,6 @@
 			public function tipoUsuario($where){
 				return $select = $this->execute_query("SELECT * FROM tipodeusuario WHERE id =".$where);
 		}  
-
-		public function verificaSessao(){
-			  session_start();
-			  if (!isset($_SESSION['id'])) {
-		   	 header("Location: ../login/login.php");
-		  	}
-		}	
 	}  		
 
 	?>
