@@ -18,7 +18,7 @@ class LoginController extends LogDeAcessoController {
 
 	public function login($email , $valueEmail ,$senha , $valueSenha){
 		$usuarioController = new UsuarioController();
-		 $result = $usuarioController->buscarPorLogin($email , $valueEmail, $senha , $valueSenha );	 
+		$result = $usuarioController->buscarPorLogin($email , $valueEmail, $senha , $valueSenha );	 
 		return $result;
 	}
 

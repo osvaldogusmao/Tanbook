@@ -9,7 +9,7 @@
 
 include_once "../../functions/crud.class.php";
 
-class HistoriaController extends crud {
+class HistoriaController extends CRUD {
 
     public function __construct() {
         parent::__construct("Historia");
