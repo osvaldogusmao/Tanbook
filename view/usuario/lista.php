@@ -7,16 +7,14 @@
 	@arquivo - lista.php
 
 */
+
 include_once "../../controller/lista.usuario.controller.class.php";
  include_once '../../controller/login.controller.class.php';
     session_start();
   if (!isset($_SESSION['id'])) {
     header("Location: ../../view/login/login.php");
   }
-  if ((!isset($_POST['action']))&&($_POST['action'] == 'logout')) {
-    $loginController = new LoginController();
-    $loginController->logout();
-  }
+
 ?>
 
 <!DOCTYPE html>
@@ -31,17 +29,17 @@ include_once "../../controller/lista.usuario.controller.class.php";
   <header> LOGO AQUI </header>
   <nav>MENU</nav>
   <form action="lista.php" method="Post">
-  <a href="lista.php?$action=<?php echo "logout" ?>">Logout Teste</a>
+ 
   <section id="conteudo">
     <p>
       <?php
-	  $idUsuario = NULL;
-	  if(isset($_POST["idUsuario"])){
-		$idUsuario = $_POST["idUsuario"];
+	  $Usuario = NULL;
+	  if(isset($_POST["Usuario"])){
+		$Usuario = $_POST["Usuario"];
 		}
 
 	$usuario_controller = new usuarioControl();
-	$resultados = $usuario_controller->listarUsuario($idUsuario);	
+	$resultados = $usuario_controller->listarUsuario($Usuario);	
 
 	?>
       <?php 
@@ -51,7 +49,7 @@ include_once "../../controller/lista.usuario.controller.class.php";
     <div id="filtro">
       <form name="form1" method="post" action="lista.php">
         <label for="idUsuario"></label>
-        <input type="text" name="idUsuario" id="idUsuario">
+        <input type="text" name="Usuario" id="Usuario">
         <input type="submit" name="button" id="button" value="Buscar">
       </form>
     <table>
