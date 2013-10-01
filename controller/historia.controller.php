@@ -11,8 +11,8 @@ include_once "../../functions/crud.class.php";
 
 class HistoriaController extends crud {
 
-    public function __contructor() {
-        parent::__contructor("Historia");
+    public function __construct() {
+        parent::__construct("Historia");
     }
 }
 

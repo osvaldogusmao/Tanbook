@@ -8,6 +8,12 @@
 <?php 
 
 
+include_once "../../controller/historia.controller.php";
+include_once "../../model/historia.class.php";
+
+$controller = new HistoriaController();
+$historia = new Historia();
+
 if (isset($_POST['submit'])) {
 	
 
@@ -43,15 +49,15 @@ LOGO AQUI
 		<input type="hidden" name="grupoUsuario_id" id="grupoUsuario_id">
 
 		<label for="nome">Nome</label>
-		<input type="text" name="nome" id="nome">
+		<input type="text" name="nome" id="nome" required>
 		<br>
 
 		<label for="resenha">Resenha</label>
-		<textarea name="resenha" id="resenha" style="width:205px; height:80px;"></textarea>
+		<textarea name="resenha" id="resenha" style="width:205px; height:80px;" required></textarea>
 		<br>
 
 		<label for="autor">Autor</label>
-		<input type="text" id="autor" name="autor">
+		<input type="text" id="autor" name="autor" required>
 		<br>
 
 		<label for="dataCriacao">Data de Criação</label>
@@ -64,7 +70,7 @@ LOGO AQUI
 
 		<label for="status">Status</label>
 		<select name="status" id="status">
-			<option value="E">Editando</option>	
+			<option value="E" selected>Editando</option>	
 			<option value="I">Inativa</option>
 			<option value="P">Publicada</option>
 		</select>
