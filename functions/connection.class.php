@@ -8,8 +8,9 @@
 
 */
 
-class Connection{
-private $parameters = array("host"=>"186.202.152.92",
+class Connection {
+
+	private $parameters = array("host"=>"186.202.152.92",
 								"user"=>"feob24",
 								"password"=>"tanbook010203@",
 								"database"=>"feob24");
@@ -41,5 +42,3 @@ private $parameters = array("host"=>"186.202.152.92",
 	}
 
 }
-
- ?>

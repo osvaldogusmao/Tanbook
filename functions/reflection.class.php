@@ -16,7 +16,7 @@
 * 0.0.1 - Criação da classe - Osvaldo Gusmão
 */
 
-class reflections {
+class Reflections {
 	
 	public function convert($object){
 		$fields = array();

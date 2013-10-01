@@ -16,13 +16,14 @@
 *
 * 0.0.1 - Criação da classe - Osvaldo Gusmão
 * 0.0.2 - Alteração do método execute_query() - Osvaldo Gusmão
+* 0.0.3 - Inclusão do método loadObject() - Osvaldo Gusmão
 */
 
 
 include_once 'reflection.class.php';
 include_once 'connection.class.php';
 
-abstract class crud {
+abstract class CRUD {
 
 	/**
 	*
@@ -61,7 +62,7 @@ abstract class crud {
 	**/
 	public function save($object){
 		
-		$ref = new Reflections;
+		$ref = new Reflections();
 		$values = $ref->convert($object);
 
 		$sql = "insert into " . $this->tabela;
@@ -94,7 +95,7 @@ abstract class crud {
 		if(empty($attr))
 			return false;
 
-		$ref = new Reflections;
+		$ref = new Reflections();
 		$values = $ref->convert($object);
 
 		$sql = "update " . $this->tabela . " set ";
@@ -184,7 +185,7 @@ abstract class crud {
 	*
 	**/
 	public function execute_query($sql){
-		$conn = new connection();
+		$conn = new Connection();
 		$conn->openConnection();
 		$executed = mysql_query($sql);
 		$conn->closeConnection();
