@@ -8,7 +8,7 @@
 
 */
 
-include_once "../../controller/lista.usuario.controller.class.php";
+include_once "../../controller/usuario.controller.class.php";
  include_once '../../controller/login.controller.class.php';
     session_start();
   if (!isset($_SESSION['id'])) {
@@ -38,7 +38,7 @@ include_once "../../controller/lista.usuario.controller.class.php";
 		$Usuario = $_POST["Usuario"];
 		}
 
-	$usuario_controller = new usuarioControl();
+	$usuario_controller = new UsuarioController();
 	$resultados = $usuario_controller->listarUsuario($Usuario);	
 
 	?>
@@ -91,8 +91,7 @@ include_once "../../controller/lista.usuario.controller.class.php";
       </tbody>
     </table>
      </div>
-    <?php		
-                //se não existir usuarios cadastrados, exibe menssagem	
+    <?php			
 	  		}else{
 		?>
     <div class="alerta"> Sem Usuários Cadastrados </div>
