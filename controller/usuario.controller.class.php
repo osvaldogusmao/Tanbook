@@ -1,5 +1,4 @@
 <?php 
-
 /**
 *	Descrição do Arquivo Usuario controller
 *	@author - Vanessa Rossi
@@ -7,8 +6,6 @@
 *	@Arquivo  - usuario.controller.class.php
 */
 include_once "../../functions/crud.class.php";
-
-
 class UsuarioController extends CRUD {
 
 	public function __construct(){
@@ -36,5 +33,4 @@ class UsuarioController extends CRUD {
 				return $select = $this->execute_query("SELECT * FROM tipodeusuario WHERE id =".$where);
 		}  	
 	}  		
-
 ?>
