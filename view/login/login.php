@@ -9,9 +9,10 @@
     include_once '../../controller/login.controller.class.php';
     include_once '../../model/logdeacesso.class.php';
     include_once '../../controller/logDeAcesso.controller.class.php';
-  
+    
+    $loginController = new LoginController();
+
 if (isset($_POST["email"]) ||  isset($_POST["senha"])){
-       $loginController = new LoginController();
       $result = $loginController->login('email' , $_POST['email'] ,'senha' , $_POST['senha']);
       $quantidadeDeDados = mysql_num_rows($result);
       if ($quantidadeDeDados == '1') {
@@ -22,7 +23,7 @@ if (isset($_POST["email"]) ||  isset($_POST["senha"])){
           $logDeAcessoController = new LogDeAcessoController();
           $logDeAcesso = new LogDeAcesso();
           $logDeAcesso->setUsuario_id($usuario["id"]);
-          $logDeAcesso->setDataAcesso(date('Y/m/d'));
+          $logDeAcesso->setDataAcesso(date('Y/m/d H:i:s'));
           $logDeAcessoController->save($logDeAcesso);
 
           header("Location: ../../index.php");

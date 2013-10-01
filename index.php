@@ -1,6 +1,8 @@
 <?php
-	
 	session_start();
+	if (!isset($_SESSION['id'])) {
+		header("Location: view/login/login.php");
+	}
 	echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
 ?>
 <!DOCTYPE html>
@@ -16,7 +18,6 @@
 LOGO AQUI
 </header>
 <nav>MENU</nav>
-<a href="index.php">Logout Teste</a>
 <section id="conteudo">
 INSIRA SEU CODIGO AQUI </br>
 

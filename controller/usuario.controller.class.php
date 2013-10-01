@@ -18,4 +18,12 @@ class UsuarioController extends crud {
 	public function buscarPorLogin($email , $valueEmail ,$senha , $valueSenha){
 		return $this->execute_query("SELECT * FROM " . $this->getTabela() ." WHERE ".$email."='". $valueEmail."' and ".$senha. " = '" .$valueSenha." ';" );
 	}
+	
+	public function verificaSessao(){
+		  session_start();
+		  if (!isset($_SESSION['id'])) {
+	   	 header("Location: ../login/login.php");
+	  	}
+	}
+
 }

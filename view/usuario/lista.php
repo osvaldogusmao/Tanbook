@@ -7,9 +7,8 @@
 	@arquivo - lista.php
 
 */
-
 include_once "../../controller/lista.usuario.controller.class.php";
-
+  echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
