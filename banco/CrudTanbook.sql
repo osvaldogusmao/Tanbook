@@ -77,7 +77,7 @@ CREATE  TABLE IF NOT EXISTS `CrudTanbook`.`Historia` (
   `grupoDeUsuario_id` INT NOT NULL ,
   `status` VARCHAR(15) NOT NULL ,
   `compartilhada` VARCHAR(15) NOT NULL ,
-  `fotoCapa` MEDIUMBLOB NOT NULL ,
+  `fotoCapa` varchar(30) NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_Historia_GrupoDeUsuario1_idx` (`grupoDeUsuario_id` ASC) ,
   CONSTRAINT `fk_Historia_GrupoDeUsuario1`
@@ -116,6 +116,27 @@ CREATE  TABLE IF NOT EXISTS `CrudTanbook`.`Categoria` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `descricao` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `CrudTanbook`.`HistoriaCategoria`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `CrudTanbook`.`HistoriaCategoria` (
+  `historia_id` INT NOT NULL ,
+  `categoria_id` INT NOT NULL ,
+  PRIMARY KEY (`historia_id`, `categoria_id`) ,
+  INDEX `fk_Historia_has_Categoria_Categoria1_idx` (`categoria_id` ASC) ,
+  INDEX `fk_Historia_has_Categoria_Historia1_idx` (`historia_id` ASC) ,
+  CONSTRAINT `fk_Historia_has_Categoria_Historia1`
+    FOREIGN KEY (`historia_id` )
+    REFERENCES `CrudTanbook`.`Historia` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Historia_has_Categoria_Categoria1`
+    FOREIGN KEY (`categoria_id` )
+    REFERENCES `CrudTanbook`.`Categoria` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;

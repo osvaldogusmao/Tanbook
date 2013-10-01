@@ -9,28 +9,28 @@
 
 include_once "../../functions/crud.class.php";
 
-class historia extends crud {
+class HistoriaController extends crud {
 
-    public function __contructor() {
-        parent::__contructor("Historia");
+    public function __construct() {
+        parent::__construct("Historia");
     }
 
-    public function saveHistoria($historia) {
-        return $this->save($historia);
-    }
+    public function uploadCapa(){
 
-    public function deleteHistoria($valor, $atributo) {
-        return $this->delete($valor, $atributo);     
-    }
+    	$extensaoOriginal = strtolower(end(explode("/", $_FILES['capa']['type'])));
 
-    public function updateHistoria($valor, $atributo) {
-        return $this->update($valor, $atributo);
-    }
-    
-    public function load($value, $attr) {
-        return $this->load($value, $attr);
-    }
+    	$uploadDir = '/Users/osvaldogusmao/Projects/workspace/workspace_unifeob/tanbook/capas/';
+    	$file = substr(md5(time()),0,10) . "_" . time() . "." . $extensaoOriginal;
+    	$fileName =  $uploadDir . $file;
 
+    	if(move_uploaded_file($_FILES['capa']['tmp_name'], $fileName )){
+    		return $file;
+    	}else{
+    		return false;
+    	}
+
+
+    }
 }
 
 ?>
