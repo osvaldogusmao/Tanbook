@@ -1,10 +1,3 @@
-<!--
-  Descrição do arquivo: View responsavel pelo cadastro de história
-  @autor - Osvaldo Gusmão
-  @data de criação - 01/10/2013
-  @arquivo - historia/cadastro.php
- -->
-
 <?php 
 
 
@@ -34,16 +27,19 @@ if (isset($_POST['submit'])) {
 
 	if($historia->getId() > 0){
 		$controller->update($historia, 'id');
-		print_r('update');
 	}else{
 		$controller->save($historia, 'id');
-		print_r('save');
 	}
 
+	header('Location: lista.php');
+
+}
+if(isset($_GET['id'])){
+	$historia = $controller->loadObject($_GET['id'], 'id');
 }
 
-?>
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,39 +59,39 @@ LOGO AQUI
 
 	<form action="cadastro.php" method="post" style="padding-left:10px;" enctype="multipart/form-data">
 		
-		<input type="hidden" name="id" id="id">
+		<input type="hidden" name="id" id="id" value="<?php echo ($historia->getId() > 0 ) ? $historia->getId() : ''; ?>">
 		<input type="hidden" name="grupoDeUsuario_id" id="grupoDeUsuario_id" value="1">
 
 		<label for="nome">Nome</label>
-		<input type="text" name="nome" id="nome" required>
+		<input type="text" name="nome" id="nome" required value="<?php echo ($historia->getId() > 0 ) ? $historia->getNome() : ''; ?>">
 		<br>
 
 		<label for="resenha">Resenha</label>
-		<textarea name="resenha" id="resenha" style="width:205px; height:80px;" required></textarea>
+		<textarea name="resenha" id="resenha" style="width:205px; height:80px;" required ><?php echo ($historia->getId() > 0 ) ? $historia->getResenha() : ''; ?></textarea>
 		<br>
 
 		<label for="autor">Autor</label>
-		<input type="text" id="autor" name="autor" required>
+		<input type="text" id="autor" name="autor" required value="<?php echo ($historia->getId() > 0 ) ? $historia->getAutor() : ''; ?>">
 		<br>
 
 		<label for="dataCriacao">Data de Criação</label>
-		<input type="date" name="dataCriacao" id="dataCriacao" format="dd/mm/yyyy">
+		<input type="date" name="dataCriacao" id="dataCriacao"  value="<?php echo ($historia->getId() > 0 ) ? $historia->getDataCriacao() : ''; ?>" >
 		<br>
 
 		<label for="dataPublicacao">Data de Publicação</label>
-		<input type="date" name="dataPublicacao" id="dataPublicacao">
+		<input type="date" name="dataPublicacao" id="dataPublicacao" value="<?php echo ($historia->getId() > 0 ) ? $historia->getDataPublicacao() : ''; ?>">
 		<br>
 
 		<label for="status">Status</label>
 		<select name="status" id="status">
-			<option value="E" selected>Editando</option>	
-			<option value="I">Inativa</option>
-			<option value="P">Publicada</option>
+			<option value="E" <?php echo ($historia->getId() > 0 && $historia->getStatus() == 'E') ? 'Selected' : ''; ?>>Editando</option>	
+			<option value="I" <?php echo ($historia->getId() > 0 && $historia->getStatus() == 'I') ? 'Selected' : ''; ?>>Inativa</option>
+			<option value="P" <?php echo ($historia->getId() > 0 && $historia->getStatus() == 'P') ? 'Selected' : ''; ?>>Publicada</option>
 		</select>
 		<br><br>
 
 		<label for="compartilhada">História Pública</label>
-		<input type="checkbox" value="S" name="compartilhada" id="compartilhada"> Sim
+		<input type="checkbox" value="S" name="compartilhada" id="compartilhada" <?php echo ($historia->getId() > 0 && $historia->getCompartilhada() == 'S') ? 'checked' : ''; ?>> Sim
 		<br><br>
 
 		<label for="capa">Capa</label>
@@ -103,6 +99,10 @@ LOGO AQUI
 		<br>
 		<br>
 
+		<?php if (($historia->getId() > 0) && !is_null($historia->getFotoCapa()) ): 	?>
+			<img src="/capas/<?php echo $historia->getFotoCapa()?>" alt="">
+		<?php endif; ?>
+		<br><br>
 		<input type="submit" value="Salvar" name="submit">
 
 	</form>

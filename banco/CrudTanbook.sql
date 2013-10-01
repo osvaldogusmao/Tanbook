@@ -77,7 +77,7 @@ CREATE  TABLE IF NOT EXISTS `CrudTanbook`.`Historia` (
   `grupoDeUsuario_id` INT NOT NULL ,
   `status` VARCHAR(15) NOT NULL ,
   `compartilhada` VARCHAR(15) NOT NULL ,
-  `fotoCapa` MEDIUMBLOB NOT NULL ,
+  `fotoCapa` varchar(30) NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_Historia_GrupoDeUsuario1_idx` (`grupoDeUsuario_id` ASC) ,
   CONSTRAINT `fk_Historia_GrupoDeUsuario1`
