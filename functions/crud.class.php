@@ -176,6 +176,27 @@ abstract class CRUD {
 		return mysql_fetch_object($this->execute_query($sql), $this->tabela);
 	}
 
+	/**
+	*
+	* @method listObject()
+	* @return Objects (Tipados)
+	*
+	**/
+	public function listObject(){
+		$sql = "select * from " . $this->tabela;
+
+		$result = $this->execute_query($sql);
+
+		$objects = array();
+
+		while ($row = mysql_fetch_object($result, $this->tabela)){
+			array_push($objects, $row);
+		}
+
+		return $objects;
+
+	}
+
 
 	/**
 	*

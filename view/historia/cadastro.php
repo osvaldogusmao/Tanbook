@@ -5,7 +5,7 @@ include_once "../../model/historia.class.php";
 	if (!isset($_SESSION['id'])) {
 		 header("Location: ../../view/login/login.php");
 	}
-	echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
+//echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
 $controller = new HistoriaController();
 $historia = new Historia();
 
@@ -39,6 +39,11 @@ if (isset($_POST['submit'])) {
 if(isset($_GET['id'])){
 	$historia = $controller->loadObject($_GET['id'], 'id');
 }
+
+$historias = $controller->listObject();
+
+print_r($historias);
+
 
 
 ?>
