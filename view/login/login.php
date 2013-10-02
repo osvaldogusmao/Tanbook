@@ -31,7 +31,8 @@ if (isset($_POST["email"]) ||  isset($_POST["senha"])){
           header("Location: login.php");
       }
 }
-    ?>
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -49,7 +50,6 @@ if (isset($_POST["email"]) ||  isset($_POST["senha"])){
 <link href="../../css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
-<<<<<<< HEAD
 <div class="container">
   <form class="form-signin" action="login.php" method="post" id="form-login">
   <fieldset>
@@ -62,17 +62,6 @@ if (isset($_POST["email"]) ||  isset($_POST["senha"])){
     <div class="control-group">
       <div class="controls">
         <input type="password" placeholder="Senha" id="senha" name="senha"/>
-=======
-<section id="wrapperLogin">
-  <section id="content">
-    <form action="login.php" method="post">
-      <h1>Login Tanbook</h1>
-      <div>
-        <input type="text" placeholder="Usuário" required  id="email" name="email"/>
-      </div>
-      <div>
-        <input type="password" placeholder="Senha" required id="senha" name="senha"/>
->>>>>>> 45b6cf066237d9dd15d48f4e26b4df3d5065a4ff
       </div>
     </div>
     <div>
