@@ -1,6 +1,7 @@
 ﻿<?php 
 
 
+<<<<<<< HEAD
 class Connection{
 	
 	private $connection;
@@ -8,6 +9,15 @@ class Connection{
 								"user"=>"root",
 								"password"=>"",
 								"database"=>"crudtanbook");
+=======
+class Connection {
+
+	private $parameters = array("host"=>"186.202.152.92",
+								"user"=>"feob24",
+								"password"=>"tanbook010203@",
+								"database"=>"feob24");
+
+>>>>>>> 45b6cf066237d9dd15d48f4e26b4df3d5065a4ff
 
 	public function openConnection(){
 
@@ -35,5 +45,3 @@ class Connection{
 	}
 
 }
-
- ?>

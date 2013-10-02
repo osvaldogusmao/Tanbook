@@ -4,17 +4,13 @@
  * @author Jão
  * @modified date: 15/09
  */
-include_once '../functions/crud.class.php';
 
-class tipoDeUsuario extends crud {
+class TipoDeUsuario{
 
     private $id;
     private $nome;
     private $descricao;
 
-    function __construct() {
-        
-    }
 
     public function getId() {
         return $this->id;

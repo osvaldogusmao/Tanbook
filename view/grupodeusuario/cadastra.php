@@ -2,6 +2,10 @@
 
 include_once "../../functions/connection.class.php";
 include_once "../../controller/GrupoDeUsuario.controller.class.php";
+	session_start();
+	if (!isset($_SESSION['id'])) {
+		 header("Location: ../../view/login/login.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>

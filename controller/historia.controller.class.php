@@ -29,7 +29,6 @@ class HistoriaController extends CRUD {
     		return false;
     	}
 
-
     }
 }
 

@@ -10,10 +10,6 @@
 
 
 class LogDeAcesso{
-	
-	function __construct(){
-		
-	}
 
 	private $id;
 	private $usuario_id;
@@ -43,9 +39,4 @@ class LogDeAcesso{
 		$this->dataAcesso = $dataAcesso;
 	}
 
-
 }
-
-
-
- ?>

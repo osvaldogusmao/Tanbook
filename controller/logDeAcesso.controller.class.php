@@ -9,7 +9,7 @@
 
 include_once "../../functions/crud.class.php";
 
-class LogDeAcessoController extends crud {
+class LogDeAcessoController extends CRUD {
 
 	public function __construct(){
 		parent::__construct("LogDeAcesso");	

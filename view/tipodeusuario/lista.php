@@ -7,6 +7,11 @@
  */
 
 include_once '../../controller/tipodeusuario.controller.class.php';
+
+    session_start();
+    if (!isset($_SESSION['id'])) {
+         header("Location: ../../view/login/login.php");
+    }
 $usuario = new TipoUsuarioController();
 $resultados = $usuario->lista();
 ?>

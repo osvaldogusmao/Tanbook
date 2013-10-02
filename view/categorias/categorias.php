@@ -11,6 +11,12 @@
 include_once "../../controller/categoria.controller.class.php";
 include_once "../../model/categoria.class.php";
 
+session_start();
+
+  if (!isset($_SESSION['id'])) {
+    header("Location: ../../view/login/login.php");
+  }
+
 ?>
 
 <!DOCTYPE html>
