@@ -1,9 +1,11 @@
 <?php
+	
 	session_start();
 	if (!isset($_SESSION['id'])) {
 		header("Location: view/login/login.php");
 	}
-	echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +22,6 @@ LOGO AQUI
 <nav>MENU</nav>
 <section id="conteudo">
 INSIRA SEU CODIGO AQUI </br>
-
 <a href="view/tipodeusuario/lista.php"> Lista Tipo usuario</a>
 </section>
 <footer>RODAPE</footer>

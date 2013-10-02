@@ -9,33 +9,15 @@
 
 include_once"../../functions/crud.class.php";
 
-class TipoUsuarioController extends crud {
+class TipoUsuarioController extends CRUD {
 
     public function __construct() {
-        parent::__construct("tipodeusuario");
+        parent::__construct("TipoDeUsuario");
     }
 
-    public function lista($where = null) {
-        if ($where) {
-
-            $select = $this->execute_query("select * from " . $this->getTabela() . "where id = " . $where);
-        } else {
-
-            $select = $this->execute_query("select * from " . $this->getTabela());
-        }
-
-        $registros = mysql_num_rows($select);
-
-        if ($registros > 0) {
-
-            return $select;
-        }
-    }
-
-    public function editar() {
-        
-    }
-
+    public function lista() {
+        return $this->execute_query("SELECT * FROM ".$this->getTabela(). " ;");
+     }
 }
 
 ?>

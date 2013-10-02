@@ -14,7 +14,7 @@
 
 include_once "../../functions/crud.class.php";
 
-class GrupoDeUsuarioController extends crud{
+class GrupoDeUsuarioController extends CRUD{
 	  
 	//Atributos
 	
@@ -55,7 +55,7 @@ class GrupoDeUsuarioController extends crud{
     		while($campo = mysql_fetch_array($sel)){ // laço de repetiçao que vai trazer todos os resultados da consulta
                     $estrutura .= 	"
 									<tr>
-										<td>".$campo['codigo']."</td>
+										<td>".$campo['id']."</td>
 										<td>".$campo['nome']."</td>
 										<td>".$campo['apelido']."</td>
 										<td>".$campo['quantidadeDeLicensa']."</td>
