@@ -37,29 +37,80 @@ if (isset($_POST["email"]) ||  isset($_POST["senha"])){
 <html>
 <head>
 <meta charset="utf-8">
-<title>Projeto Tanbook</title>
-<link href="../../css/style.css" rel="stylesheet" type="text/css">
+<title>Tanbook</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Estilos -->
+<link href="../../css/bootstrap.css" rel="stylesheet">
+<link href="../../css/login.css" rel="stylesheet">
+<link href="../../css/validation.css" rel="stylesheet">
+<link href="../../css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
-<section id="wrapperLogin">
-  <section id="content">
-    <form action="login.php" method="post">
-      <h1>Login Tanbook</h1>
-      <div>
-        <input type="text" placeholder="Usuário" required id="username" id="email" name="email"/>
+<div class="container">
+  <form class="form-signin" action="login.php" method="post" id="form-login">
+  <fieldset>
+    <h1>Login Tanbook</h1>
+    <div class="control-group">
+      <div class="controls">
+        <input type="text" placeholder="Usuário" id="email" name="email"/>
       </div>
-      <div>
-        <input type="password" placeholder="Senha" required id="password" id="senha" name="senha"/>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="password" placeholder="Senha" id="senha" name="senha"/>
       </div>
-      <div>
-        <input type="submit" value="Entrar" />
-        <a href="#">Esqueceu sua senha?</a> <a href="#">Registre-se</a> </div>
-    </form>
-    <!-- form --> 
-  </section>
-  <!-- content -->
-  </div>
-  <!-- container --> 
-</section>
+    </div>
+    <div>
+      <input type="submit" value="Entrar" class="btn"/>
+      <a href="#">Esqueceu sua senha?</a> <a href="#">Registre-se</a> </div>
+  </fieldset>
+  </form>
+  <!-- form --> 
+</div>
+<!-- content -->
+</div>
+<!-- container --> 
+<!-- Javascript --> 
+<script src="../../js/jquery.js"></script> 
+<script src="../../js/jquery.validate.min.js"></script> 
+<script src="../../js/bootstrap-transition.js"></script> 
+<script src="../../js/bootstrap-alert.js"></script> 
+<script src="../../js/bootstrap-modal.js"></script> 
+<script src="../../js/bootstrap-dropdown.js"></script> 
+<script src="../../js/bootstrap-scrollspy.js"></script> 
+<script src="../../js/bootstrap-tab.js"></script> 
+<script src="../../js/bootstrap-tooltip.js"></script> 
+<script src="../../js/bootstrap-popover.js"></script> 
+<script src="../../js/bootstrap-button.js"></script> 
+<script src="../../js/bootstrap-collapse.js"></script> 
+<script src="../../js/bootstrap-carousel.js"></script> 
+<script src="../../js/bootstrap-typeahead.js"></script> 
+<script>
+        $(document).ready(function(){
+         
+         $('#form-login').validate(
+         {
+          rules: {
+            email: {
+              minlength: 2,
+              required: true
+            },
+            senha: {
+              required: true            }
+          },
+          highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+          },
+          success: function(element) {
+            element
+            .text('OK!').addClass('valid')
+            .closest('.control-group').removeClass('error').addClass('success');
+          }
+         });
+        });
+        </script>
 </body>
 </html>

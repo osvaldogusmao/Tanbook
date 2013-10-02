@@ -65,7 +65,7 @@ include_once "../../controller/usuario.controller.class.php";
 				while($campos = mysql_fetch_array($resultados)):
 		?>
         <tr>
-          <td><img src="../../img/<?php echo $campos["avatar"] ?>.png" width="30" height="30"></td>
+          <td><img src="../../img/av<?php echo $campos["avatar"] ?>.png" width="30" height="30"></td>
           <td><?php echo $campos["apelido"] ?></td>
           <td><?php echo $campos["nomeUsuario"] ?></td>
           <td><?php echo $campos["email"] ?></td>

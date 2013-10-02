@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-image:url("../img/background_geral.jpg");
+	background-position: top right;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-clip:border-box;
+	padding-top: 80px;
+	padding-bottom: 40px;
+}
+
+
+.nav{
+	padding-top: 18px;
+	margin-top: 10px;
+}

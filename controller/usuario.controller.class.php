@@ -45,7 +45,7 @@ class UsuarioController extends crud {
 	  		
 		// Método de listagem
 		public function listarUsuario($where = NULL){	
-			verificaSessao();
+//			verificaSessao();
 			if ($where){
 				$select = $this->execute_query("SELECT grupoDeUsuario.nome AS nomeGrupo, usuario.nome AS nomeUsuario, tipodeusuario.nome AS nomeTipo, usuario.id, usuario.email, usuario.sexo, usuario.dataDeNascimento, usuario.urlFacebook, usuario.apelido, usuario.avatar FROM usuario, tipodeusuario, grupoDeUsuario WHERE usuario.grupoDeUsuario_id = grupoDeUsuario.id AND usuario.tipoDeUsuario_id = tipodeusuario.id and usuario.id =".$where);
 			}else{
