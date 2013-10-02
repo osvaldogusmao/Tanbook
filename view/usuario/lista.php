@@ -14,6 +14,11 @@ include_once "../../controller/usuario.controller.class.php";
   if (!isset($_SESSION['id'])) {
     header("Location: ../../view/login/login.php");
   }
+  if ((isset($_GET['action'])) && ($_GET['action'] == 'logout' )) {
+      $loginController = new LoginController();
+      $loginController->logout();
+      header("Location: ../../view/login/login.php");
+  }
 
 ?>
 
@@ -28,8 +33,7 @@ include_once "../../controller/usuario.controller.class.php";
 <section id="wrapper">
   <header> LOGO AQUI </header>
   <nav>MENU</nav>
-  <form action="lista.php" method="Post">
- 
+ <a href= "lista.php?action=logout">Logout</a>
   <section id="conteudo">
     <p>
       <?php
@@ -99,7 +103,6 @@ include_once "../../controller/usuario.controller.class.php";
 				}
  		  ?>
   </section>
-  </form>
   <footer>RODAPE</footer>
 </section>
 </body>

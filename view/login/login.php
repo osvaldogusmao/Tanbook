@@ -46,10 +46,10 @@ if (isset($_POST["email"]) ||  isset($_POST["senha"])){
     <form action="login.php" method="post">
       <h1>Login Tanbook</h1>
       <div>
-        <input type="text" placeholder="Usuário" required id="username" id="email" name="email"/>
+        <input type="text" placeholder="Usuário" required  id="email" name="email"/>
       </div>
       <div>
-        <input type="password" placeholder="Senha" required id="password" id="senha" name="senha"/>
+        <input type="password" placeholder="Senha" required id="senha" name="senha"/>
       </div>
       <div>
         <input type="submit" value="Entrar" />
