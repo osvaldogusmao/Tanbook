@@ -1,11 +1,12 @@
 <?php 
 include_once "../../controller/historia.controller.php";
 include_once "../../model/historia.class.php";
-	session_start();
-	if (!isset($_SESSION['id'])) {
-		 header("Location: ../../view/login/login.php");
-	}
-//echo "Imprimindo sessão com id do usuario para teste ".$_SESSION['id'];
+
+session_start();
+if (!isset($_SESSION['id'])) {
+	 header("Location: ../../view/login/login.php");
+}
+
 $controller = new HistoriaController();
 $historia = new Historia();
 
@@ -42,11 +43,9 @@ if(isset($_GET['id'])){
 
 $historias = $controller->listObject();
 
-print_r($historias);
-
-
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

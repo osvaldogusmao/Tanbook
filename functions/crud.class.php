@@ -17,6 +17,7 @@
 * 0.0.1 - Criação da classe - Osvaldo Gusmão
 * 0.0.2 - Alteração do método execute_query() - Osvaldo Gusmão
 * 0.0.3 - Inclusão do método loadObject() - Osvaldo Gusmão
+* 0.0.4 - Inclusão do método listObjects() - Osvaldo Gusmão
 */
 
 
@@ -182,7 +183,7 @@ abstract class CRUD {
 	* @return Objects (Tipados)
 	*
 	**/
-	public function listObject(){
+	public function listObjects(){
 		$sql = "select * from " . $this->tabela;
 
 		$result = $this->execute_query($sql);
@@ -192,9 +193,7 @@ abstract class CRUD {
 		while ($row = mysql_fetch_object($result, $this->tabela)){
 			array_push($objects, $row);
 		}
-
 		return $objects;
-
 	}
 
 
