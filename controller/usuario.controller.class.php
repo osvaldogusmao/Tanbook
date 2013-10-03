@@ -6,6 +6,7 @@
 *	@Arquivo  - usuario.controller.class.php
 */
 include_once "../../functions/crud.class.php";
+
 class UsuarioController extends CRUD {
 
 	public function __construct(){
