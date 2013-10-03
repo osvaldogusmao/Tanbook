@@ -1,5 +1,5 @@
 <!-- 
-	Descrição do arquivo: Esta é a tela de Login do usuario
+	Descrição do arquivo: Esta é a tela de Login do usuário
 	@autor - Lukas Roberto
 	@data de criação - 28/09/2013
 	@arquivo - login.php
