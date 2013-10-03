@@ -7,13 +7,14 @@
 	*	@Arquivo  - login.controller.class.php
 	*/
 
-include_once '../../controller/usuario.controller.class.php';
-include_once '../../controller/logDeAcesso.controller.class.php';
+include_once 'usuario.controller.class.php';
+include_once 'logdeacesso.controller.class.php';
 
 
 class LoginController extends LogDeAcessoController {
 
 	public function __construct(){
+
 	}
 
 	public function login($email , $valueEmail ,$senha , $valueSenha){
