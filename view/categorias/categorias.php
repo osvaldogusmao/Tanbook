@@ -41,7 +41,7 @@ session_start();
       <form name="form1" method="post" action="categoria.controller.class.php">
         <label for="idCategoria"></label>
         Código: 
-        <input name="idCategoria" type="text" id="idCategoria" size="5" maxlength="10" readonly="readonly">
+        <input name="idCategoria" type="text" id="idCategoria" size="5" maxlength="10" readonly>
         <br>
         Nome da Categoria:
         <input type="text" name="categoria" id="categoria">
@@ -69,8 +69,8 @@ session_start();
 				while($campos = mysql_fetch_array($resultados)):
 		?>
         <tr>
-          <td><?php echo $campos["idCategoria"] ?></td>
-          <td><?php echo $campos["nomeCategoria"] ?></td>
+          <td><?php echo $campos["id"] ?></td>
+          <td><?php echo $campos["descricao"] ?></td>
           <td><a href="editar.php?id=<?php echo $campos["id"] ?>" class="tbListaUsuario">Editar</a></td>
           <td><a href="categoria.controller.class.php?id=<?php echo $campos["id"] ?>" class="tbListaUsuario">Excluir</a></td>
         </tr>

@@ -33,7 +33,7 @@ include_once "../../controller/usuario.controller.class.php";
 <section id="wrapper">
   <header> LOGO AQUI </header>
   <nav>MENU</nav>
- <a href= "lista.php?action=logout">Logout</a>
+  <a href= "lista.php?action=logout">Logout</a>
   <section id="conteudo">
     <p>
       <?php
@@ -56,45 +56,45 @@ include_once "../../controller/usuario.controller.class.php";
         <input type="text" name="Usuario" id="Usuario">
         <input type="submit" name="button" id="button" value="Buscar">
       </form>
-    <table>
-      <thead>
-        <tr>
-          <th>Avatar</th>
-          <th>Apelido</th>
-          <th>Nome</th>
-          <th>E-mail</th>
-          <th>Sexo</th>
-          <th>Data de Nascimento</th>
-          <th>Facebook</th>
-          <th>Tipo de Usuário</th>
-          <th>Grupo do Usuário</th>
-          <th>Alterar</th>
-          <th>Deletar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
+      <table>
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>Apelido</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Sexo</th>
+            <th>Data de Nascimento</th>
+            <th>Facebook</th>
+            <th>Tipo de Usuário</th>
+            <th>Grupo do Usuário</th>
+            <th>Alterar</th>
+            <th>Deletar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
 				while($campos = mysql_fetch_array($resultados)):
 		?>
-        <tr>
-          <td><img src="../../img/av<?php echo $campos["avatar"] ?>.png" width="30" height="30"></td>
-          <td><?php echo $campos["apelido"] ?></td>
-          <td><?php echo $campos["nomeUsuario"] ?></td>
-          <td><?php echo $campos["email"] ?></td>
-          <td><?php echo $campos["sexo"] ?></td>
-          <td><?php echo $campos["dataDeNascimento"] ?></td>
-          <td><?php echo $campos["urlFacebook"] ?></td>
-          <td><?php echo $campos["nomeTipo"] ?></td>
-          <td><?php echo $campos["nomeGrupo"] ?></td>
-          <td><a href="editar.php?id=<?php echo $campos["id"] ?>" class="tbListaUsuario">Editar</a></td>
-          <td><a href="excluir.php?id=<?php echo $campos["id"] ?>" class="tbListaUsuario">Excluir</a></td>
-        </tr>
-        <?php
+          <tr>
+            <td><img src="../../img/av<?php echo $campos["avatar"] ?>.png" width="30" height="30"></td>
+            <td><?php echo $campos["apelido"] ?></td>
+            <td><?php echo $campos["nomeUsuario"] ?></td>
+            <td><?php echo $campos["email"] ?></td>
+            <td><?php echo $campos["sexo"] ?></td>
+            <td><?php echo $campos["dataDeNascimento"] ?></td>
+            <td><?php echo $campos["urlFacebook"] ?></td>
+            <td><?php echo $campos["nomeTipo"] ?></td>
+            <td><?php echo $campos["nomeGrupo"] ?></td>
+            <td><a href="editar.php?id=<?php echo $campos["id"] ?>" class="tbListaUsuario">Editar</a></td>
+            <td><a href="excluir.php?id=<?php echo $campos["id"] ?>" class="tbListaUsuario">Excluir</a></td>
+          </tr>
+          <?php
 		  		endwhile;
 		?>
-      </tbody>
-    </table>
-     </div>
+        </tbody>
+      </table>
+    </div>
     <?php			
 	  		}else{
 		?>

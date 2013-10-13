@@ -14,12 +14,21 @@
 
 include_once '../../functions/crud.class.php';
 
-class CategoriaController extends CRUD {
+class categoriaController extends CRUD {
 
     function __construct() {
         parent::__construct("Categoria");
     }
-
+		public function listarCategoria(){
+		$resultado = $this->execute_query("SELECT * FROM " . $this->getTabela());
+		
+		$regs = mysql_num_rows($resultado);
+		if ($regs > 0){
+			return $resultado;
+		}else{
+			return false;
+		}
+	}
 }
 
 ?>

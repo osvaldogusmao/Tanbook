@@ -1,13 +1,19 @@
-﻿<?php 
+<?php 
 
+/*
+	Descrição do arquivo
+	@autor - Ivan Simionato
+	@data de criação - 08/09/2013
+	@arquivo - connection.class.php
+
+*/
 
 class Connection{
-	
-	private $connection;
-	private $parameters = array("host"=>"localhost",
-								"user"=>"root",
-								"password"=>"",
-								"database"=>"crudtanbook");
+private $parameters = array("host"=>"186.202.152.92",
+								"user"=>"feob24",
+								"password"=>"tanbook010203@",
+								"database"=>"feob24");
+
 
 	public function openConnection(){
 
