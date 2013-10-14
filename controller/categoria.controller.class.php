@@ -30,5 +30,8 @@ class categoriaController extends CRUD {
 		}
 	}
 }
+			
+
+	
 
 ?>
