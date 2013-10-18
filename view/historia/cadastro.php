@@ -1,5 +1,5 @@
 <?php 
-include_once "../../controller/historia.controller.php";
+include_once "../../controller/historia.controller.class.php";
 include_once "../../model/historia.class.php";
 
 session_start();
