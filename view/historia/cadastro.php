@@ -41,7 +41,7 @@ if(isset($_GET['id'])){
 	$historia = $controller->loadObject($_GET['id'], 'id');
 }
 
-$historias = $controller->listObject();
+ //$historias = $controller->listObject();
 
 
 ?>

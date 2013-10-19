@@ -6,7 +6,7 @@ class Connection{
 	private $connection;
 	private $parameters = array("host"=>"localhost",
 								"user"=>"root",
-								"password"=>"",
+								"password"=>"root",
 								"database"=>"crudtanbook");
 
 	public function openConnection(){
