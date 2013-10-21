@@ -13,7 +13,7 @@ include_once '../../controller/tipodeusuario.controller.class.php';
          header("Location: ../../view/login/login.php");
     }
 $usuario = new TipoUsuarioController();
-$resultados = $usuario->lista();
+$resultados = $usuario->listObjects();
 ?>
 
 <!DOCTYPE html>

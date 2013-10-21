@@ -8,40 +8,40 @@ if (!isset($_SESSION['id'])) {
 }
 
 $controller = new HistoriaController();
-$historia = new Historia();
+$capitulos = new Historia();
 
 if (isset($_POST['submit'])) {
 
-	$historia->setId($_POST['id']);
-	$historia->setGrupoDeUsuario_id($_POST['grupoDeUsuario_id']);
-	$historia->setNome($_POST['nome']);
-	$historia->setResenha($_POST['resenha']);
-	$historia->setAutor($_POST['autor']);
-	$historia->setDataCriacao($_POST['dataCriacao']);
-	$historia->setDataPublicacao($_POST['dataPublicacao']);
-	$historia->setStatus($_POST['status']);
-	$historia->setCompartilhada($_POST['compartilhada']);
+	$capitulos->setId($_POST['id']);
+	$capitulos->setGrupoDeUsuario_id($_POST['grupoDeUsuario_id']);
+	$capitulos->setNome($_POST['nome']);
+	$capitulos->setResenha($_POST['resenha']);
+	$capitulos->setAutor($_POST['autor']);
+	$capitulos->setDataCriacao($_POST['dataCriacao']);
+	$capitulos->setDataPublicacao($_POST['dataPublicacao']);
+	$capitulos->setStatus($_POST['status']);
+	$capitulos->setCompartilhada($_POST['compartilhada']);
 
 	$fotoCapa = $controller->uploadCapa();
 
 	if(!empty($fotoCapa)){
-		$historia->setFotoCapa($fotoCapa);
+		$capitulos->setFotoCapa($fotoCapa);
 	}
 
-	if($historia->getId() > 0){
-		$controller->update($historia, 'id');
+	if($capitulos->getId() > 0){
+		$controller->update($capitulos, 'id');
 	}else{
-		$controller->save($historia, 'id');
+		$controller->save($capitulos, 'id');
 	}
 
 	header('Location: lista.php');
 
 }
 if(isset($_GET['id'])){
-	$historia = $controller->loadObject($_GET['id'], 'id');
+	$capitulos = $controller->loadObject($_GET['id'], 'id');
 }
 
- //$historias = $controller->listObject();
+ $historias = $controller->listObject();
 
 
 ?>
@@ -65,39 +65,39 @@ LOGO AQUI
 
 	<form action="cadastro.php" method="post" style="padding-left:10px;" enctype="multipart/form-data">
 		
-		<input type="hidden" name="id" id="id" value="<?php echo ($historia->getId() > 0 ) ? $historia->getId() : ''; ?>">
+		<input type="hidden" name="id" id="id" value="<?php echo ($capitulos->getId() > 0 ) ? $capitulos->getId() : ''; ?>">
 		<input type="hidden" name="grupoDeUsuario_id" id="grupoDeUsuario_id" value="1">
 
 		<label for="nome">Nome</label>
-		<input type="text" name="nome" id="nome" required value="<?php echo ($historia->getId() > 0 ) ? $historia->getNome() : ''; ?>">
+		<input type="text" name="nome" id="nome" required value="<?php echo ($capitulos->getId() > 0 ) ? $capitulos->getNome() : ''; ?>">
 		<br>
 
 		<label for="resenha">Resenha</label>
-		<textarea name="resenha" id="resenha" style="width:205px; height:80px;" required ><?php echo ($historia->getId() > 0 ) ? $historia->getResenha() : ''; ?></textarea>
+		<textarea name="resenha" id="resenha" style="width:205px; height:80px;" required ><?php echo ($capitulos->getId() > 0 ) ? $capitulos->getResenha() : ''; ?></textarea>
 		<br>
 
 		<label for="autor">Autor</label>
-		<input type="text" id="autor" name="autor" required value="<?php echo ($historia->getId() > 0 ) ? $historia->getAutor() : ''; ?>">
+		<input type="text" id="autor" name="autor" required value="<?php echo ($capitulos->getId() > 0 ) ? $capitulos->getAutor() : ''; ?>">
 		<br>
 
 		<label for="dataCriacao">Data de Criação</label>
-		<input type="date" name="dataCriacao" id="dataCriacao"  value="<?php echo ($historia->getId() > 0 ) ? $historia->getDataCriacao() : ''; ?>" >
+		<input type="date" name="dataCriacao" id="dataCriacao"  value="<?php echo ($capitulos->getId() > 0 ) ? $capitulos->getDataCriacao() : ''; ?>" >
 		<br>
 
 		<label for="dataPublicacao">Data de Publicação</label>
-		<input type="date" name="dataPublicacao" id="dataPublicacao" value="<?php echo ($historia->getId() > 0 ) ? $historia->getDataPublicacao() : ''; ?>">
+		<input type="date" name="dataPublicacao" id="dataPublicacao" value="<?php echo ($capitulos->getId() > 0 ) ? $capitulos->getDataPublicacao() : ''; ?>">
 		<br>
 
 		<label for="status">Status</label>
 		<select name="status" id="status">
-			<option value="E" <?php echo ($historia->getId() > 0 && $historia->getStatus() == 'E') ? 'Selected' : ''; ?>>Editando</option>	
-			<option value="I" <?php echo ($historia->getId() > 0 && $historia->getStatus() == 'I') ? 'Selected' : ''; ?>>Inativa</option>
-			<option value="P" <?php echo ($historia->getId() > 0 && $historia->getStatus() == 'P') ? 'Selected' : ''; ?>>Publicada</option>
+			<option value="E" <?php echo ($capitulos->getId() > 0 && $capitulos->getStatus() == 'E') ? 'Selected' : ''; ?>>Editando</option>	
+			<option value="I" <?php echo ($capitulos->getId() > 0 && $capitulos->getStatus() == 'I') ? 'Selected' : ''; ?>>Inativa</option>
+			<option value="P" <?php echo ($capitulos->getId() > 0 && $capitulos->getStatus() == 'P') ? 'Selected' : ''; ?>>Publicada</option>
 		</select>
 		<br><br>
 
 		<label for="compartilhada">História Pública</label>
-		<input type="checkbox" value="S" name="compartilhada" id="compartilhada" <?php echo ($historia->getId() > 0 && $historia->getCompartilhada() == 'S') ? 'checked' : ''; ?>> Sim
+		<input type="checkbox" value="S" name="compartilhada" id="compartilhada" <?php echo ($capitulos->getId() > 0 && $capitulos->getCompartilhada() == 'S') ? 'checked' : ''; ?>> Sim
 		<br><br>
 
 		<label for="capa">Capa</label>
@@ -105,8 +105,8 @@ LOGO AQUI
 		<br>
 		<br>
 
-		<?php if (($historia->getId() > 0) && !is_null($historia->getFotoCapa()) ): 	?>
-			<img src="/capas/<?php echo $historia->getFotoCapa()?>" alt="">
+		<?php if (($capitulos->getId() > 0) && !is_null($capitulos->getFotoCapa()) ): 	?>
+			<img src="/capas/<?php echo $capitulos->getFotoCapa()?>" alt="">
 		<?php endif; ?>
 		<br><br>
 		<input type="submit" value="Salvar" name="submit">

@@ -14,10 +14,6 @@ class TipoUsuarioController extends CRUD {
     public function __construct() {
         parent::__construct("TipoDeUsuario");
     }
-
-    public function lista() {
-        return $this->execute_query("SELECT * FROM ".$this->getTabela(). " ;");
-     }
 }
 
 ?>

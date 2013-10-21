@@ -15,21 +15,32 @@ class HistoriaController extends CRUD {
         parent::__construct("Historia");
     }
 
-    public function uploadCapa(){
+    public function uploadCapa() {
 
-    	$extensaoOriginal = strtolower(end(explode("/", $_FILES['capa']['type'])));
+        $extensaoOriginal = strtolower(end(explode("/", $_FILES['capa']['type'])));
 
-    	$uploadDir = '/Users/osvaldogusmao/Projects/workspace/workspace_unifeob/tanbook/capas/';
-    	$file = substr(md5(time()),0,10) . "_" . time() . "." . $extensaoOriginal;
-    	$fileName =  $uploadDir . $file;
+        $uploadDir = '/Users/osvaldogusmao/Projects/workspace/workspace_unifeob/tanbook/capas/';
+        $file = substr(md5(time()), 0, 10) . "_" . time() . "." . $extensaoOriginal;
+        $fileName = $uploadDir . $file;
 
-    	if(move_uploaded_file($_FILES['capa']['tmp_name'], $fileName )){
-    		return $file;
-    	}else{
-    		return false;
-    	}
-
+        if (move_uploaded_file($_FILES['capa']['tmp_name'], $fileName)) {
+            return $file;
+        } else {
+            return false;
+        }
     }
+
+//    public function listarHistoria() {
+//        $resultado = $this->execute_query("SELECT * FROM " . $this->getTabela());
+//
+//        $regs = mysql_num_rows($resultado);
+//        if ($regs > 0) {
+//            return $resultado;
+//        } else {
+//            return false;
+//        }
+//    }
+
 }
 
 ?>
