@@ -1,4 +1,3 @@
-
 <?php
 
 /*
@@ -88,7 +87,7 @@ $controller->save($model);
             <input type="text" id="descricao" name="descricao">
             <label for="file">Arquivo:</label>
             <input type="file" id="file" name="file">
-            <input type="button" value="Enviar" name="submit">
+            <input type="submit" value="Enviar" name="submit">
 
         </form>
     </div>
