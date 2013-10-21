@@ -58,10 +58,10 @@ function check()
 $controller = new BackgroundController();
 $model = new Background();
 
-$model->setPath($dirPath.$FILES["file"]["name"]);
-$model->setGrupo_id($_SESSION["grupo_id"]);
-$model->setDescricao($_GET['descricao']);
-$model->getStatus($_GET['status']);
+$model->setPath($dirPath.$_FILES["file"]["name"]);
+$model->setGrupo_id($_SESSION["grupoDeUsuario_id"]);
+$model->setDescricao($_POST["descricao"]);
+$model->getStatus($_POST["status"]);
 
 $controller->save($model);
 
@@ -78,7 +78,7 @@ $controller->save($model);
 <body>
  <div id="container">
      <div id="form">
-         <form action="cadastro.php" method="GET">
+         <form action="cadastro.php" method="POST">
 
             <label for="status">Status</label>
             <input type="text" id="status" name="status">
@@ -86,7 +86,7 @@ $controller->save($model);
             <input type="text" id="descricao" name="descricao">
             <label for="file">Arquivo:</label>
             <input type="file" id="file" name="file">
-            <input type="button" value="enviar">
+            <input type="button" value="Enviar">
 
         </form>
     </div>

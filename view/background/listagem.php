@@ -42,7 +42,7 @@ $controller = new BackgroundController();
       </thead>
       <tbody>
         <?php
-        $res = $controller->load($_SESSION['grupo_id'], "grupo_id");
+        $res = $controller->load($_SESSION['grupoDeUsuario_id'], "grupo_id");
 
         if (isset($res)){
          while ($campos = mysql_fetch_array($res)):
