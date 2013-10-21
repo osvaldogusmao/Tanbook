@@ -27,10 +27,9 @@ if (isset($_POST["email"]) ||  isset($_POST["senha"])){
           $logDeAcesso->setDataAcesso(date('Y/m/d H:i:s'));
           $logDeAcessoController->save($logDeAcesso);
 
-          //header("Location: ../../index.php");
-          print_r($_SESSION);
+          header("Location: ../../index.php");
       }else{
-          //header("Location: login.php");
+          header("Location: login.php");
       }
 }
 
