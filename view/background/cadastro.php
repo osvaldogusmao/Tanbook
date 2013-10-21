@@ -58,13 +58,15 @@ function check()
 $controller = new BackgroundController();
 $model = new Background();
 
+if(isset($_POST['submit'])){
+
 $model->setPath($dirPath.$_FILES["file"]["name"]);
 $model->setGrupo_id($_SESSION["grupoDeUsuario_id"]);
 $model->setDescricao($_POST["descricao"]);
 $model->getStatus($_POST["status"]);
 
 $controller->save($model);
-
+}
 
 ?>
 
@@ -86,7 +88,7 @@ $controller->save($model);
             <input type="text" id="descricao" name="descricao">
             <label for="file">Arquivo:</label>
             <input type="file" id="file" name="file">
-            <input type="button" value="Enviar">
+            <input type="button" value="Enviar" name="submit">
 
         </form>
     </div>
