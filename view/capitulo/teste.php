@@ -1,4 +1,11 @@
 <?php
+include_once '../../controller/historia.controller.class.php';
+
+$controller = new HistoriaController();
+
+$resultados = $controller->listObjects();
+
+
 session_start();
 if (!isset($_SESSION['id'])) {
     header("Location: ../../view/login/login.php");
@@ -14,6 +21,14 @@ if (!isset($_SESSION['id'])) {
         <link rel="stylesheet" href="css/reset.css" type="text/css" charset="utf-8">
         <link rel="stylesheet" href="css/core.css" type="text/css" charset="utf-8">
         <link rel="stylesheet" href="css/accordion.core.css" type="text/css" charset="utf-8">
+        <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript">
+            function getValor(valor) {
+                $("#topico").load("../../js/ajax_1.php", {id: valor});
+            }
+            ;
+        </script>
+
         <style type="text/css">
             .loading {
                 display: none;
@@ -68,26 +83,23 @@ if (!isset($_SESSION['id'])) {
             </header>
             <nav>MENU</nav>
             <section id="conteudo">
-                <h2>Exemplo</h2>
 
                 <ul id="example2" class="accordion">
                     <li>
-                        <h3 onclick="getValor()">Handle 4</h3>
+                        <h3>Historias</h3>
                         <div class="panel loading">
-                            <h4>A nested list of items</h4>
-                            <ul>
-                                <li>Item 1</li>
-                                <li>Item 2
+                            <?php while ($campos = mysql_fetch_array($resultados)): ?>
+                                <ul>
+                                    <li onclick="getValor(<?php echo $campos["id"]?>);"><?php echo $campos["nome"] ?></li>
                                     <ul>
-                                        <li>Subitem 1</li>
-                                        <li>Subitem 2</li>
-                                        <li>Subitem 3</li>
-                                    </ul>
-                                </li>
-                                <li>Item 3</li>
-                                <li>Item 4</li>
-                                <li>Item 5</li>
-                            </ul>
+                                        <li id="topico"></li>
+                                    </ul>   
+                                </ul>
+
+                            <?php endwhile; ?>
+                            <div id ="topico"></div>
+
+
                         </div>
                     </li>
                 </ul>     
@@ -103,12 +115,6 @@ if (!isset($_SESSION['id'])) {
                         canOpenMultiple: true
                     });
                     $(".loading").removeClass("loading");
-
-
-                    function getValor(valor) {
-                        $("#bloco2").load("../../js/ajaxValor.php", {id: valor});
-                    }
-                    ;
 
                 </script>
 

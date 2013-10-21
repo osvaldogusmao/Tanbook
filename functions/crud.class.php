@@ -1,6 +1,7 @@
-<?php
+<?php 
 
 /**
+<<<<<<< HEAD
  *
  * Projeto : Tanbook
  * Projeto Interdisciplinar : UNIFeob - Fundação de Ensino Octávio Bastos
@@ -19,10 +20,12 @@
  * 0.0.3 - Inclusão do método loadObject() - Osvaldo Gusmão
  * 0.0.4 - Inclusão do método listObjects() - Osvaldo Gusmão
  */
+
 include_once 'reflection.class.php';
 include_once 'connection.class.php';
 
 abstract class CRUD {
+
 
     /**
      *
@@ -210,5 +213,4 @@ abstract class CRUD {
         $conn->closeConnection();
         return $executed;
     }
-
 }

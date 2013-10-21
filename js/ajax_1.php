@@ -15,11 +15,7 @@ $totalBusca = mysql_query($sql);
 if (mysql_num_rows($totalBusca) > 0) {
 
     while ($resultado = mysql_fetch_array($totalBusca)) {
-
-        echo "<tr><td>" . htmlentities($resultado["id"]) . " -  " . htmlentities($resultado["texto"]) .
-        '  ' . "<a href= '" . htmlentities("#update") . "' role='label' class='btn' data-toggle='modal'>" . htmlentities("editar") .
-        "</a><a href= '" . htmlentities("#delete") . "' role='label' class='btn' data-toggle='modal'>" . htmlentities("deletar") .
-        "</a></td><tr>";
+        "<ul><li>".htmlentities($resultado["texto"])."</li></ul>";
     }
 } else {
     echo 'Nenhum Capitulo encontado';

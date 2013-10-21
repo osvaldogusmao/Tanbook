@@ -31,18 +31,14 @@ $resultados = $historiaController ->listObjects();
         <script src="../../js/jquery.js"></script> 
         <script src="../../js/bootstrap-transition.js"></script> 
         <script src="../../js/bootstrap-modal.js"></script> 
-
-        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
         <script src="../../js/jquery.js"></script>
-
         <script type="text/javascript">
             function getValor(valor) {
                 $("#bloco2").load("../../js/ajaxValor.php", {id: valor});
             }
             ;
         </script>
-
-        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
     </head>
     <body>
         <section id="wrapper">
