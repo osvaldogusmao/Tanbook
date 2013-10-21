@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 /**
 *
 * Projeto : Tanbook
 * Projeto Interdisciplinar : UNIFeob - Fundação de Ensino Octávio Bastos
 * Turma III - Análise e Desenvolvimento de Sistema
-* 
+*
 * Objetivo
 *
 * Prover os métodos de salvar, atualizar e remover de forma genérica para ser usada
@@ -29,7 +29,7 @@ abstract class CRUD {
 	/**
 	*
 	* Atributos
-	* 
+	*
 	**/
 
 	private $tabela;
@@ -62,7 +62,7 @@ abstract class CRUD {
 	*
 	**/
 	public function save($object){
-		
+
 		$ref = new Reflections();
 		$values = $ref->convert($object);
 
@@ -72,7 +72,7 @@ abstract class CRUD {
 		$size = count($values['fields']);
 		$loop = 1;
 
-		for ($j=0; $j < $size; $j++) { 
+		for ($j=0; $j < $size; $j++) {
 			$sql .= $ref->get_value_by_type($values['values'][$j]);
 			$sql .= ($loop < $size) ? "," : "";
 			$loop++;
@@ -92,7 +92,7 @@ abstract class CRUD {
 	*
 	**/
 	public function update($object, $attr){
-		
+
 		if(empty($attr))
 			return false;
 
@@ -104,7 +104,7 @@ abstract class CRUD {
 		$size = count($values['fields']);
 		$loop = 1;
 
-		for ($j=0; $j < $size; $j++) { 
+		for ($j=0; $j < $size; $j++) {
 
 			if($values['fields'][$j] != $attr ){
 				$sql .= $values['fields'][$j] . ' = ' . $ref->get_value_by_type($values['values'][$j]);
@@ -130,7 +130,7 @@ abstract class CRUD {
 	*
 	**/
 	public function remove($value, $attr){
-		
+
 		if(empty($attr))
 			return false;
 
