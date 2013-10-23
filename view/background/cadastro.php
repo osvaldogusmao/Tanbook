@@ -23,6 +23,7 @@ if ((isset($_GET['action'])) && ($_GET['action'] == 'logout' )) {
 $controller = new BackgroundController();
 $model = new Background();
 $dirPath = "../../backgrounds/";
+$session = (int)$_SESSION["grupoDeUsuario_id"];
 
 if(isset($_POST['btn'])){
 
@@ -54,7 +55,7 @@ if(isset($_POST['btn'])){
 
 
     $model->setPath($dirPath.$_FILES["file"]["name"]);
-    $model->setGrupo_id($_SESSION["grupoDeUsuario_id"]);
+    $model->setGrupo_id($session);
     $model->setDescricao($_POST["descricao"]);
     $model->getStatus($_POST["status"]);
 

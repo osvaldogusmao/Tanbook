@@ -1,6 +1,6 @@
 <?php
 /*
-Joao Pedro Evangelista 
+Joao Pedro Evangelista
 20/10/2013
 Listagem de imagem
 
@@ -52,7 +52,7 @@ $controller = new BackgroundController();
 
 
       <?php
-      $res = $controller->loadObject($_SESSION['grupoDeUsuario_id'], "grupo_id");
+      $res = $controller->loadObject((int)$_SESSION['grupoDeUsuario_id'], "grupo_id");
 
       if (!empty($res)){
        while ($campos = mysql_fetch_array($res));
