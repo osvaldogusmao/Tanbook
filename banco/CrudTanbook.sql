@@ -194,7 +194,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `crudtanbook`.`opcaodapergunta` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `decricao` VARCHAR(150) NULL ,
+  `descricao` VARCHAR(150) NULL ,
   `pergunta_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_opcaodapergunta_pergunta1_idx` (`pergunta_id` ASC) ,
@@ -210,14 +210,14 @@ ENGINE = InnoDB;
 -- Table `crudtanbook`.`resposta`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `crudtanbook`.`resposta` (
-  `opcaodapergunta_id` INT NOT NULL ,
+  `opcaoDaPergunta_id` INT NOT NULL ,
   `historia_id` INT(11) NOT NULL ,
   `usuario_id` INT(11) NOT NULL ,
-  INDEX `fk_resposta_opcaodapergunta1_idx` (`opcaodapergunta_id` ASC) ,
+  INDEX `fk_resposta_opcaodapergunta1_idx` (`opcaoDaPergunta_id` ASC) ,
   INDEX `fk_resposta_historia1_idx` (`historia_id` ASC) ,
   INDEX `fk_resposta_usuario1_idx` (`usuario_id` ASC) ,
   CONSTRAINT `fk_resposta_opcaodapergunta1`
-    FOREIGN KEY (`opcaodapergunta_id` )
+    FOREIGN KEY (`opcaoDaPergunta_id` )
     REFERENCES `crudtanbook`.`opcaodapergunta` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
