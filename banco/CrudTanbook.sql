@@ -1,283 +1,240 @@
-CREATE DATABASE  IF NOT EXISTS `crudtanbook` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `crudtanbook`;
--- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
---
--- Host: localhost    Database: crudtanbook
--- ------------------------------------------------------
--- Server version	5.5.28
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE SCHEMA IF NOT EXISTS `crudtanbook` DEFAULT CHARACTER SET utf8 ;
+USE `crudtanbook` ;
 
---
--- Table structure for table `background`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`grupodeusuario`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`grupodeusuario` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `nome` VARCHAR(75) NOT NULL ,
+  `apelido` VARCHAR(45) NOT NULL ,
+  `quantidadeDeLicensa` INT(11) NOT NULL ,
+  `validadeDaLicensa` DATE NOT NULL ,
+  `dataDeCadastro` DATE NOT NULL ,
+  `chaveDaLicensa` VARCHAR(45) NOT NULL ,
+  `status` TINYINT(1) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-DROP TABLE IF EXISTS `background`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `background` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `grupo_id` int(11) NOT NULL,
-  `descricao` varchar(50) NOT NULL,
-  `path` varchar(45) NOT NULL,
-  `status` tinyint(4) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_idx` (`grupo_id`),
-  CONSTRAINT `id` FOREIGN KEY (`grupo_id`) REFERENCES `grupodeusuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `background`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`background`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`background` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `grupo_id` INT(11) NOT NULL ,
+  `descricao` VARCHAR(50) NOT NULL ,
+  `path` VARCHAR(45) NOT NULL ,
+  `status` TINYINT(4) NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `id_idx` (`grupo_id` ASC) ,
+  CONSTRAINT `id`
+    FOREIGN KEY (`grupo_id` )
+    REFERENCES `crudtanbook`.`grupodeusuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-LOCK TABLES `background` WRITE;
-/*!40000 ALTER TABLE `background` DISABLE KEYS */;
-/*!40000 ALTER TABLE `background` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `capitulo`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`historia`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`historia` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `nome` VARCHAR(75) NOT NULL ,
+  `resenha` MEDIUMTEXT NOT NULL ,
+  `autor` VARCHAR(75) NOT NULL ,
+  `dataCriacao` DATE NOT NULL ,
+  `dataPublicacao` DATE NOT NULL ,
+  `grupoDeUsuario_id` INT(11) NOT NULL ,
+  `status` VARCHAR(15) NOT NULL ,
+  `compartilhada` VARCHAR(15) NOT NULL ,
+  `fotoCapa` MEDIUMBLOB NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_Historia_GrupoDeUsuario1_idx` (`grupoDeUsuario_id` ASC) ,
+  CONSTRAINT `fk_Historia_GrupoDeUsuario1`
+    FOREIGN KEY (`grupoDeUsuario_id` )
+    REFERENCES `crudtanbook`.`grupodeusuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-DROP TABLE IF EXISTS `capitulo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `capitulo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `historia_id` int(11) NOT NULL,
-  `tangram_id` int(11) NOT NULL,
-  `texto` text NOT NULL,
-  `ordem` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_idx` (`historia_id`),
-  KEY `id_idx1` (`tangram_id`),
-  CONSTRAINT `idhistoria` FOREIGN KEY (`historia_id`) REFERENCES `historia` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idtangram` FOREIGN KEY (`tangram_id`) REFERENCES `tangram` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `capitulo`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`tangram`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`tangram` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `posicaoX` INT(11) NOT NULL ,
+  `posicaoY` INT(11) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-LOCK TABLES `capitulo` WRITE;
-/*!40000 ALTER TABLE `capitulo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `capitulo` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `categoria`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`capitulo`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`capitulo` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `historia_id` INT(11) NOT NULL ,
+  `tangram_id` INT(11) NOT NULL ,
+  `texto` TEXT NOT NULL ,
+  `ordem` INT(11) NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `id_idx` (`historia_id` ASC) ,
+  INDEX `id_idx1` (`tangram_id` ASC) ,
+  CONSTRAINT `idhistoria`
+    FOREIGN KEY (`historia_id` )
+    REFERENCES `crudtanbook`.`historia` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `idtangram`
+    FOREIGN KEY (`tangram_id` )
+    REFERENCES `crudtanbook`.`tangram` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-DROP TABLE IF EXISTS `categoria`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categoria` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `categoria`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`categoria`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`categoria` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `descricao` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-LOCK TABLES `categoria` WRITE;
-/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `grupodeusuario`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`tipodeusuario`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`tipodeusuario` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `nome` VARCHAR(45) NOT NULL ,
+  `descricao` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-DROP TABLE IF EXISTS `grupodeusuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `grupodeusuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(75) NOT NULL,
-  `apelido` varchar(45) NOT NULL,
-  `quantidadeDeLicensa` int(11) NOT NULL,
-  `validadeDaLicensa` date NOT NULL,
-  `dataDeCadastro` date NOT NULL,
-  `chaveDaLicensa` varchar(45) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `grupodeusuario`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`usuario`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`usuario` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `nome` VARCHAR(75) NOT NULL ,
+  `email` VARCHAR(45) NOT NULL ,
+  `sexo` VARCHAR(10) NOT NULL ,
+  `senha` VARCHAR(45) NOT NULL ,
+  `dataDeNascimento` DATE NOT NULL ,
+  `urlFacebook` VARCHAR(45) NOT NULL ,
+  `apelido` VARCHAR(20) NOT NULL ,
+  `avatar` VARCHAR(45) NOT NULL ,
+  `dataDeCadastro` DATE NOT NULL ,
+  `tipoDeUsuario_id` INT(11) NOT NULL ,
+  `grupoDeUsuario_id` INT(11) NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_Usuario_TipoDeUsuario_idx` (`tipoDeUsuario_id` ASC) ,
+  INDEX `fk_Usuario_GrupoDeUsuario1_idx` (`grupoDeUsuario_id` ASC) ,
+  CONSTRAINT `fk_Usuario_GrupoDeUsuario1`
+    FOREIGN KEY (`grupoDeUsuario_id` )
+    REFERENCES `crudtanbook`.`grupodeusuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Usuario_TipoDeUsuario`
+    FOREIGN KEY (`tipoDeUsuario_id` )
+    REFERENCES `crudtanbook`.`tipodeusuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-LOCK TABLES `grupodeusuario` WRITE;
-/*!40000 ALTER TABLE `grupodeusuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `grupodeusuario` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `historia`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`logdeacesso`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`logdeacesso` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `usuario_id` INT(11) NOT NULL ,
+  `dataAcesso` DATETIME NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_LogDeAcesso_Usuario1_idx` (`usuario_id` ASC) ,
+  CONSTRAINT `fk_LogDeAcesso_Usuario1`
+    FOREIGN KEY (`usuario_id` )
+    REFERENCES `crudtanbook`.`usuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
-DROP TABLE IF EXISTS `historia`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `historia` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(75) NOT NULL,
-  `resenha` mediumtext NOT NULL,
-  `autor` varchar(75) NOT NULL,
-  `dataCriacao` date NOT NULL,
-  `dataPublicacao` date NOT NULL,
-  `grupoDeUsuario_id` int(11) NOT NULL,
-  `status` varchar(15) NOT NULL,
-  `compartilhada` varchar(15) NOT NULL,
-  `fotoCapa` mediumblob NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_Historia_GrupoDeUsuario1_idx` (`grupoDeUsuario_id`),
-  CONSTRAINT `fk_Historia_GrupoDeUsuario1` FOREIGN KEY (`grupoDeUsuario_id`) REFERENCES `grupodeusuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `historia`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`pergunta`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`pergunta` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `descricao` VARCHAR(150) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 
-LOCK TABLES `historia` WRITE;
-/*!40000 ALTER TABLE `historia` DISABLE KEYS */;
-/*!40000 ALTER TABLE `historia` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `logdeacesso`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`opcaodapergunta`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`opcaodapergunta` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `descricao` VARCHAR(150) NULL ,
+  `pergunta_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_opcaodapergunta_pergunta1_idx` (`pergunta_id` ASC) ,
+  CONSTRAINT `fk_opcaodapergunta_pergunta1`
+    FOREIGN KEY (`pergunta_id` )
+    REFERENCES `crudtanbook`.`pergunta` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `logdeacesso`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `logdeacesso` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id` int(11) NOT NULL,
-  `dataAcesso` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_LogDeAcesso_Usuario1_idx` (`usuario_id`),
-  CONSTRAINT `fk_LogDeAcesso_Usuario1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `logdeacesso`
---
+-- -----------------------------------------------------
+-- Table `crudtanbook`.`resposta`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `crudtanbook`.`resposta` (
+  `opcaoDaPergunta_id` INT NOT NULL ,
+  `historia_id` INT(11) NOT NULL ,
+  `usuario_id` INT(11) NOT NULL ,
+  INDEX `fk_resposta_opcaodapergunta1_idx` (`opcaoDaPergunta_id` ASC) ,
+  INDEX `fk_resposta_historia1_idx` (`historia_id` ASC) ,
+  INDEX `fk_resposta_usuario1_idx` (`usuario_id` ASC) ,
+  CONSTRAINT `fk_resposta_opcaodapergunta1`
+    FOREIGN KEY (`opcaoDaPergunta_id` )
+    REFERENCES `crudtanbook`.`opcaodapergunta` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_resposta_historia1`
+    FOREIGN KEY (`historia_id` )
+    REFERENCES `crudtanbook`.`historia` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_resposta_usuario1`
+    FOREIGN KEY (`usuario_id` )
+    REFERENCES `crudtanbook`.`usuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-LOCK TABLES `logdeacesso` WRITE;
-/*!40000 ALTER TABLE `logdeacesso` DISABLE KEYS */;
-/*!40000 ALTER TABLE `logdeacesso` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `tangram`
---
 
-DROP TABLE IF EXISTS `tangram`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tangram` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `posicaoX` int(11) NOT NULL,
-  `posicaoY` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tangram`
---
-
-LOCK TABLES `tangram` WRITE;
-/*!40000 ALTER TABLE `tangram` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tangram` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tipodeusuario`
---
-
-DROP TABLE IF EXISTS `tipodeusuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tipodeusuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(45) NOT NULL,
-  `descricao` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tipodeusuario`
---
-
-LOCK TABLES `tipodeusuario` WRITE;
-/*!40000 ALTER TABLE `tipodeusuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tipodeusuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `usuario`
---
-
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(75) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `sexo` varchar(10) NOT NULL,
-  `senha` varchar(45) NOT NULL,
-  `dataDeNascimento` date NOT NULL,
-  `urlFacebook` varchar(45) NOT NULL,
-  `apelido` varchar(20) NOT NULL,
-  `avatar` varchar(45) NOT NULL,
-  `dataDeCadastro` date NOT NULL,
-  `tipoDeUsuario_id` int(11) NOT NULL,
-  `grupoDeUsuario_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_Usuario_TipoDeUsuario_idx` (`tipoDeUsuario_id`),
-  KEY `fk_Usuario_GrupoDeUsuario1_idx` (`grupoDeUsuario_id`),
-  CONSTRAINT `fk_Usuario_GrupoDeUsuario1` FOREIGN KEY (`grupoDeUsuario_id`) REFERENCES `grupodeusuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Usuario_TipoDeUsuario` FOREIGN KEY (`tipoDeUsuario_id`) REFERENCES `tipodeusuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
-
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2013-10-18 11:37:50
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
